@@ -1,7 +1,20 @@
-# 应用名称
-spring.application.name=yto
-# 应用服务 WEB 访问端口
-server.port=8080
+server:
+  servlet:
+    context-path: /yto
 
+spring:
+  datasource:
+    username: root
+    password: 1234
+    url: jdbc:mysql://localhost:3306/yto
+    driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    jedis:
+      pool:
+        max-wait: 3000
+        max-idle: 300
+        max-active: 100
 
+mybatis:
+  mapper-locations: mapper/*.xml
 
