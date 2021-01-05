@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.net.yto.dao.MyorderDao">
+
+    <resultMap type="cn.net.yto.entity.Myorder" id="MyorderMap">
+        <result property="oid" column="oid" jdbcType="INTEGER"/>
+        <result property="uid" column="uid" jdbcType="VARCHAR"/>
+        <result property="onumber" column="onumber" jdbcType="VARCHAR"/>
+        <result property="wnumber" column="wnumber" jdbcType="VARCHAR"/>
+        <result property="itemtype" column="itemtype" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="weight" column="weight" jdbcType="NUMERIC"/>
+        <result property="otime" column="otime" jdbcType="VARCHAR"/>
+        <result property="ystatus" column="ystatus" jdbcType="INTEGER"/>
+        <result property="money" column="money" jdbcType="NUMERIC"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="MyorderMap">
+        select
+          oid, uid, onumber, wnumber, itemtype, remark, weight, otime, ystatus, money
+        from yto.myorder
+        where oid = #{oid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="MyorderMap">
+        select
+          oid, uid, onumber, wnumber, itemtype, remark, weight, otime, ystatus, money
+        from yto.myorder
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="MyorderMap">
+        select
+          oid, uid, onumber, wnumber, itemtype, remark, weight, otime, ystatus, money
+        from yto.myorder
+        <where>
+            <if test="oid != null">
+                and oid = #{oid}
+            </if>
+            <if test="uid != null and uid != ''">
+                and uid = #{uid}
+            </if>
+            <if test="onumber != null and onumber != ''">
+                and onumber = #{onumber}
+            </if>
+            <if test="wnumber != null and wnumber != ''">
+                and wnumber = #{wnumber}
+            </if>
+            <if test="itemtype != null and itemtype != ''">
+                and itemtype = #{itemtype}
+            </if>
+            <if test="remark != null and remark != ''">
+                and remark = #{remark}
+            </if>
+            <if test="weight != null">
+                and weight = #{weight}
+            </if>
+            <if test="otime != null and otime != ''">
+                and otime = #{otime}
+            </if>
+            <if test="ystatus != null">
+                and ystatus = #{ystatus}
+            </if>
+            <if test="money != null">
+                and money = #{money}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="oid" useGeneratedKeys="true">
+        insert into yto.myorder(uid, onumber, wnumber, itemtype, remark, weight, otime, ystatus, money)
+        values (#{uid}, #{onumber}, #{wnumber}, #{itemtype}, #{remark}, #{weight}, #{otime}, #{ystatus}, #{money})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="oid" useGeneratedKeys="true">
+        insert into yto.myorder(uid, onumber, wnumber, itemtype, remark, weight, otime, ystatus, money)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.uid}, #{entity.onumber}, #{entity.wnumber}, #{entity.itemtype}, #{entity.remark}, #{entity.weight}, #{entity.otime}, #{entity.ystatus}, #{entity.money})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="oid" useGeneratedKeys="true">
+        insert into yto.myorder(uid, onumber, wnumber, itemtype, remark, weight, otime, ystatus, money)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.uid}, #{entity.onumber}, #{entity.wnumber}, #{entity.itemtype}, #{entity.remark}, #{entity.weight}, #{entity.otime}, #{entity.ystatus}, #{entity.money})
+        </foreach>
+        on duplicate key update
+         uid = values(uid) , onumber = values(onumber) , wnumber = values(wnumber) , itemtype = values(itemtype) , remark = values(remark) , weight = values(weight) , otime = values(otime) , ystatus = values(ystatus) , money = values(money)     </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update yto.myorder
+        <set>
+            <if test="uid != null and uid != ''">
+                uid = #{uid},
+            </if>
+            <if test="onumber != null and onumber != ''">
+                onumber = #{onumber},
+            </if>
+            <if test="wnumber != null and wnumber != ''">
+                wnumber = #{wnumber},
+            </if>
+            <if test="itemtype != null and itemtype != ''">
+                itemtype = #{itemtype},
+            </if>
+            <if test="remark != null and remark != ''">
+                remark = #{remark},
+            </if>
+            <if test="weight != null">
+                weight = #{weight},
+            </if>
+            <if test="otime != null and otime != ''">
+                otime = #{otime},
+            </if>
+            <if test="ystatus != null">
+                ystatus = #{ystatus},
+            </if>
+            <if test="money != null">
+                money = #{money},
+            </if>
+        </set>
+        where oid = #{oid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from yto.myorder where oid = #{oid}
+    </delete>
+
+</mapper>
