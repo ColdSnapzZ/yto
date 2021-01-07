@@ -1,0 +1,84 @@
+.input-select-box.active {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	padding: 40px 15px 15px;
+	border-radius: 6px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #898989;
+	border: 1px solid #d5d5d6;
+	background-color: #fff;
+	cursor: default;
+}
+
+.input-select-box.active .input-select-content {
+	border-radius: 6px;
+	overflow: hidden;
+	border: 1px solid #d5d5d6;
+	padding-bottom: 10px;
+}
+
+.input-select-box.active .input-select-content .select-nav {
+	width: 100%;
+	height: 30px;
+	overflow: hidden;
+	display: flex;
+	float: left;
+}
+
+.input-select-box.active .input-select-content .select-nav li {
+	float: left;
+	height: 30px;
+	width: 25%;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+	box-sizing: border-box;
+	width: 33.33% !important;
+	margin: 0 !important;
+	text-align: center;
+	border-bottom: 1px solid #d5d5d6;
+	border-right: 1px solid #d5d5d6;
+}
+
+.input-select-box.active .input-select-content .select-nav .no-border-right {
+	border-right: 0;
+}
+
+.input-select-box.active .input-select-content .select-nav .active {
+	border-bottom: 0;
+}
+
+.input-select-box.active .input-select-content .select-content {
+	padding: 15px;
+}
+
+.input-select-box.active .input-select-content .select-content .select-content-item {
+	max-height: 50vh;
+}
+
+.input-select-box.active .input-select-content .select-content .select-content-item li {
+	float: left;
+	height: 30px;
+	width: 25%;
+	border-radius: 6px;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.input-select-box.active .input-select-content .select-content .select-content-item li:hover {
+	color: #fff;
+	background-color: #47086c;
+}
+
+.select-content-item .active {
+	color: #fff;
+	background-color: #47086c;
+}
