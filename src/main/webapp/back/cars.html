@@ -39,7 +39,7 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">状态</label>
                 <div class="layui-input-block">
-                    <input type="checkbox" lay-filter="ystatus" name="ystatus" lay-skin="switch" lay-text="运输|等待">
+                    <input type="checkbox" lay-filter="ystatus" id="car_ystatus" name="ystatus" lay-skin="switch" lay-text="运输|等待">
                 </div>
             </div>
 
@@ -60,6 +60,7 @@
 <script type="text/html" id="rowBar">
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="info">运输记录</a>
 </script>
 <!--表操作-->
 <script type="text/html" id="carBar">
@@ -105,10 +106,13 @@
 
         var cartable=table.render({
             elem: '#cars'
-            ,url: '/yto/cars/selectAll' //数据接口
+            ,url: '/yto/cars/selectAllByLimit' //数据接口
             ,toolbar:'#carBar'
+            ,limits:[5,10,15]
+            ,limit:5
+            ,page:true
             ,cols: [[ //表头
-                {field: 'cid', title: 'ID',  sort: true, fixed: 'left'}
+                {field: 'cid', title: 'ID',  sort: true, fixed: 'left',hide:true}
                 ,{field: 'cname', title: '车牌号'}
                 ,{field: 'empid', title: '员工号', sort: true}
                 ,{field: 'cartype', title: '类型'}
@@ -133,6 +137,8 @@
                 case 'add':
                     $("#carForm1")[0].reset();
                     method='insert';
+                    $("#car_ystatus").attr('checked',false);
+                    $("#car_ystatus").attr('disabled',true);
                     layer.open({
                         title:'新增车辆',
                         area: ['370px', '450px'],
@@ -149,10 +155,12 @@
             var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
             if(layEvent === 'edit'){ //查看
                 method='update';
-                if (data.ystatus==0){
-                    $('input[name="ystatus"]').attr('checked',false);
-                }else {
+                $("#car_ystatus").attr('disabled',false);
+                let status=$('#car'+data.cid).is(':checked');
+                if (status){
                     $('input[name="ystatus"]').attr('checked',true);
+                }else {
+                    $('input[name="ystatus"]').attr('checked',false);
                 }
                 //给表单赋值
                 form.val("carForm", { //formTest 即 class="layui-form" 所在元素属性 lay-filter="" 对应的值
@@ -188,9 +196,8 @@
 
                 });
             }else if (layEvent == 'ystatus'){
-                let status=$('#car'+data.cid).val();
-                alert(status)
-                if (data.ystatus=='0'){
+                let status=$('#car'+data.cid).is(':checked');
+                if (status){
                     data.ystatus='1';
                 }else {
                     data.ystatus='0';
@@ -200,7 +207,7 @@
                     data:'cid='+data.cid+'&ystatus='+data.ystatus,
                     dataType: 'json',
                     success:function (msg) {
-                        cartable.reload();
+                        //cartable.reload();
                         if (msg){
                             layer.msg('更新成功')
                         }else {
@@ -209,6 +216,12 @@
 
                     }
                 })
+            }else if (layEvent == 'info'){
+                //转码
+                var url='car_info.html?cid='+data.cname;
+                let uri = encodeURI(url);
+                //top.location.href=uri;
+                window.location.href=uri;
             }
         });
 

@@ -24,6 +24,11 @@
         select
           cid, cname, empid, cartype, dotid, ystatus
         from yto.cars
+        <where>
+            <if test="branchId != null and branchId != ''">
+                and dotid = #{branchId}
+            </if>
+        </where>
         limit #{offset}, #{limit}
     </select>
 
@@ -92,5 +97,29 @@
     <select id="count" resultType="int">
         select count(cid) from yto.cars where dotid = #{id}
     </select>
+
+    <!--根据车牌号查询运输记录-->
+    <select id="selectStowageByCid" resultType="cn.net.yto.entity.Stowage">
+        select
+            stid, opnumber, cardid, lineid, putime, ontime, ystatus
+        from yto.stowage
+        where cardid=#{cid}
+        limit #{offset}, #{limit}
+    </select>
+
+    <select id="carInfoCount" resultType="int">
+        select count(cardid) from yto.stowage where cardid=#{cid}
+    </select>
+
+    <update id="updateStatus">
+        update yto.cars set ystatus = #{status} where cid= #{cid}
+    </update>
+
+    <insert id="addStowage">
+        insert into
+        yto.stowage(opnumber, cardid, lineid, putime, ontime, ystatus)
+        VALUES
+        (#{opnumber}, #{cardid}, #{lineid}, #{putime}, #{ontime}, #{ystatus})
+    </insert>
 
 </mapper>
