@@ -1,6 +1,7 @@
 package cn.net.yto.controller;
 
 import cn.net.yto.entity.Cars;
+import cn.net.yto.entity.Stowage;
 import cn.net.yto.service.CarsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,20 +53,21 @@ public class CarsController {
      * 分页查询
      * @param page 页码
      * @param limit 行数
-     * @param branchId 网点id
      * @return 查询数据
      */
     @RequestMapping("selectAllByLimit")
     @ResponseBody
-    public Map<String, Object> selectAllByLimit(int page, int limit,String branchId){
+    public Map<String, Object> selectAllByLimit(int page, int limit){
+        //获取session域得到员工对象
+
         //调用分页查询方法
-        List<Cars> cars = carsService.queryAllByLimit((page-1)*limit,limit);
+        List<Cars> cars = carsService.queryAllByLimit((page-1)*limit,limit,"BH20210108");
         //创建map集合
         HashMap<String, Object> map=new HashMap<>();
         //设置状态
         map.put("code",0);
         //设置总行数
-        map.put("count", cars.size());
+        map.put("count", carsService.count("BH20210108"));
         //设置数据
         map.put("data", cars);
         //返回map集合
@@ -106,6 +108,30 @@ public class CarsController {
     public boolean delete(int cid){
         //调用删除方法并返回修改结果
         return carsService.deleteById(cid);
+    }
+
+    @RequestMapping("carInfo")
+    @ResponseBody
+    public Map<String, Object> carInfo(int page, int limit,String cid){
+        //调用分页查询selectStowageByCid方法
+        List<Stowage> stowages = carsService.selectStowageByCid((page - 1) * limit, limit, cid);
+        //创建map集合
+        HashMap<String, Object> map=new HashMap<>();
+        //设置状态
+        map.put("code",0);
+        //设置总行数
+        map.put("count", carsService.carInfoCount(cid));
+        //设置数据
+        map.put("data", stowages);
+        //返回map集合
+        return map;
+    }
+
+    @RequestMapping("addStowage")
+    @ResponseBody
+    public boolean addStowage(Stowage stowage,int cid){
+        //调用carsService.addStowage方法并返回结果
+        return carsService.addStowage(stowage,cid);
     }
 
 }

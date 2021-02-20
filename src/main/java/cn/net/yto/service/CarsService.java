@@ -1,6 +1,7 @@
 package cn.net.yto.service;
 
 import cn.net.yto.entity.Cars;
+import cn.net.yto.entity.Stowage;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public interface CarsService {
      * @param limit  查询条数
      * @return 对象列表
      */
-    List<Cars> queryAllByLimit(int offset, int limit);
+    List<Cars> queryAllByLimit(int offset, int limit,String branchId);
 
     /**
      * 新增数据
@@ -69,4 +70,32 @@ public interface CarsService {
      */
     int count(@Param("id") String id);
 
+    /**
+     * 根据车牌号查询运输记录
+     * @param cid 车牌号
+     * @return
+     */
+    List<Stowage> selectStowageByCid(int offset,int limit,String cid);
+
+    /**
+     * 查询运输记录行数
+     * @param cid 车辆车牌号
+     * @return 行数
+     */
+    int carInfoCount(@Param("cid") String cid);
+
+    /**
+     * 修改车辆状态
+     * @param cid
+     * @param status
+     * @return
+     */
+    boolean updateStatus(int cid, int status);
+
+    /**
+     * 新增Stowage
+     * @param stowage
+     * @return
+     */
+    boolean addStowage(Stowage stowage,int cid);
 }

@@ -2,8 +2,10 @@ package cn.net.yto.service.impl;
 
 import cn.net.yto.dao.CarsDao;
 import cn.net.yto.entity.Cars;
+import cn.net.yto.entity.Stowage;
 import cn.net.yto.service.CarsService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -38,8 +40,8 @@ public class CarsServiceImpl implements CarsService {
      * @return 对象列表
      */
     @Override
-    public List<Cars> queryAllByLimit(int offset, int limit) {
-        return this.carsDao.queryAllByLimit(offset, limit);
+    public List<Cars> queryAllByLimit(int offset, int limit,String branchId) {
+        return this.carsDao.queryAllByLimit(offset, limit,branchId);
     }
 
     /**
@@ -83,5 +85,27 @@ public class CarsServiceImpl implements CarsService {
     @Override
     public int count(String id) {
         return carsDao.count(id);
+    }
+
+    @Override
+    public List<Stowage> selectStowageByCid(int offset,int limit,String cid) {
+        return carsDao.selectStowageByCid(offset,limit,cid);
+    }
+
+    @Override
+    public int carInfoCount(String cid) {
+        return carsDao.carInfoCount(cid);
+    }
+
+    @Override
+    public boolean updateStatus(int cid, int status) {
+        return carsDao.updateStatus(cid, status)>0;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public boolean addStowage(Stowage stowage,int cid) {
+        carsDao.updateStatus(cid, 1);
+        return carsDao.addStowage(stowage)>0;
     }
 }

@@ -1,6 +1,7 @@
 package cn.net.yto.dao;
 
 import cn.net.yto.entity.Cars;
+import cn.net.yto.entity.Stowage;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -30,7 +31,7 @@ public interface CarsDao {
      * @param limit  查询条数
      * @return 对象列表
      */
-    List<Cars> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
+    List<Cars> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit,@Param("branchId") String branchId);
 
     /**
      * 通过实体作为筛选条件查询
@@ -72,4 +73,32 @@ public interface CarsDao {
      */
     int count(@Param("id") String id);
 
+    /**
+     * 根据车牌号查询运输记录
+     * @param cid 车牌号
+     * @return
+     */
+    List<Stowage> selectStowageByCid(@Param("offset") int offset, @Param("limit") int limit,@Param("cid")String cid);
+
+    /**
+     * 查询运输记录行数
+     * @param cid 车辆车牌号
+     * @return 行数
+     */
+    int carInfoCount(@Param("cid") String cid);
+
+    /**
+     * 修改车辆状态
+     * @param cid
+     * @param status
+     * @return
+     */
+    int updateStatus(@Param("cid") int cid,@Param("status") int status);
+
+    /**
+     * 新增Stowage
+     * @param stowage
+     * @return
+     */
+    int addStowage(Stowage stowage);
 }
