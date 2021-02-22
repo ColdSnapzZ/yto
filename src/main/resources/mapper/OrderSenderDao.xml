@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.net.yto.dao.OrderSenderDao">
+
+    <resultMap id="BaseResultMap" type="cn.net.yto.entity.OrderSender">
+        <!--@Table order_sender-->
+        <result property="osid" column="osid" jdbcType="INTEGER"/>
+        <result property="onumber" column="onumber" jdbcType="VARCHAR"/>
+        <result property="sname" column="sname" jdbcType="VARCHAR"/>
+        <result property="sphone" column="sphone" jdbcType="VARCHAR"/>
+        <result property="sdistrict" column="sdistrict" jdbcType="VARCHAR"/>
+        <result property="sdetailed" column="sdetailed" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          osid, onumber, sname, sphone, sdistrict, sdetailed
+        from yto.order_sender
+        where osid = #{osid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          osid, onumber, sname, sphone, sdistrict, sdetailed
+        from yto.order_sender
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          osid, onumber, sname, sphone, sdistrict, sdetailed
+        from yto.order_sender
+        <where>
+            <if test="osid != null">
+                and osid = #{osid}
+            </if>
+            <if test="onumber != null and onumber != ''">
+                and onumber = #{onumber}
+            </if>
+            <if test="sname != null and sname != ''">
+                and sname = #{sname}
+            </if>
+            <if test="sphone != null and sphone != ''">
+                and sphone = #{sphone}
+            </if>
+            <if test="sdistrict != null and sdistrict != ''">
+                and sdistrict = #{sdistrict}
+            </if>
+            <if test="sdetailed != null and sdetailed != ''">
+                and sdetailed = #{sdetailed}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="osid" useGeneratedKeys="true">
+        insert into yto.order_sender(onumber, sname, sphone, sdistrict, sdetailed)
+        values (#{onumber}, #{sname}, #{sphone}, #{sdistrict}, #{sdetailed})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update yto.order_sender
+        <set>
+            <if test="onumber != null and onumber != ''">
+                onumber = #{onumber},
+            </if>
+            <if test="sname != null and sname != ''">
+                sname = #{sname},
+            </if>
+            <if test="sphone != null and sphone != ''">
+                sphone = #{sphone},
+            </if>
+            <if test="sdistrict != null and sdistrict != ''">
+                sdistrict = #{sdistrict},
+            </if>
+            <if test="sdetailed != null and sdetailed != ''">
+                sdetailed = #{sdetailed},
+            </if>
+        </set>
+        where osid = #{osid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from yto.order_sender where osid = #{osid}
+    </delete>
+
+</mapper>
