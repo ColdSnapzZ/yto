@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Mapper
 public interface MyorderDao {
-
+    public int count();
     /**
      * 通过ID查询单条数据
      *
@@ -22,6 +22,9 @@ public interface MyorderDao {
      * @return 实例对象
      */
     Myorder queryById(Integer oid);
+
+
+    Myorder queryById1(Myorder myorder);
 
     /**
      * 查询指定行数据

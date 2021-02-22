@@ -30,7 +30,15 @@ public class Myorder implements Serializable {
     private Integer ystatus;
 
     private Double money;
+    private Userinfo userinfo;
 
+    public Userinfo getUserinfo() {
+        return userinfo;
+    }
+
+    public void setUserinfo(Userinfo userinfo) {
+        this.userinfo = userinfo;
+    }
 
     public Integer getOid() {
         return oid;
@@ -112,4 +120,19 @@ public class Myorder implements Serializable {
         this.money = money;
     }
 
+    @Override
+    public String toString() {
+        return "Myorder{" +
+                "oid=" + oid +
+                ", uid='" + uid + '\'' +
+                ", onumber='" + onumber + '\'' +
+                ", wnumber='" + wnumber + '\'' +
+                ", itemtype='" + itemtype + '\'' +
+                ", remark='" + remark + '\'' +
+                ", weight=" + weight +
+                ", otime='" + otime + '\'' +
+                ", ystatus=" + ystatus +
+                ", money=" + money +
+                '}';
+    }
 }

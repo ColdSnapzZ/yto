@@ -211,14 +211,14 @@
 				
 
 				  <p class="wenzi2">&nbsp;&nbsp;&nbsp;&nbsp;*抵用券:&nbsp;&nbsp;<input type="text" class="wnezikuang2" placeholder="无抵用券" disabled="disabled"/></p>
-				  <p class="wenzi2">*物品类型:&nbsp;&nbsp;&nbsp;&nbsp;<select  class="s1" id="select1">
+				  <p class="wenzi2">*物品类型:&nbsp;&nbsp;&nbsp;&nbsp;<select  class="s1" name="itemtype">
 					  <option value="食品">食品</option>
 					  <option value="文件">文件</option>
 					  <option value="服饰">服饰</option>
 					  <option value="生活用品">生活用品</option>
 				  </select>
 				 </p>
-				    <p class="wenzi2">*特殊类型:&nbsp;&nbsp;&nbsp;&nbsp;<select class="s1" id="select2">
+				    <p class="wenzi2">*特殊类型:&nbsp;&nbsp;&nbsp;&nbsp;<select class="s1" name="remark">
 						<option value="需要纸箱">需要纸箱</option>
 						<option value="需要爬楼">需要爬楼</option>
 						<option value="缺文件袋">缺文件袋</option>

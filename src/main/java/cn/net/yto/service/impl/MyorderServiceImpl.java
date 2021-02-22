@@ -30,6 +30,11 @@ public class MyorderServiceImpl implements MyorderService {
         return this.myorderDao.queryById(oid);
     }
 
+    @Override
+    public Myorder queryById1(Myorder myorder) {
+        return this.myorderDao.queryById1(myorder);
+    }
+
     /**
      * 查询多条数据
      *
@@ -75,5 +80,10 @@ public class MyorderServiceImpl implements MyorderService {
     @Override
     public boolean deleteById(Integer oid) {
         return this.myorderDao.deleteById(oid) > 0;
+    }
+
+    @Override
+    public int count() {
+        return this.myorderDao.count();
     }
 }

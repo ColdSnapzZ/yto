@@ -13,6 +13,7 @@
         <result property="otime" column="otime" jdbcType="VARCHAR"/>
         <result property="ystatus" column="ystatus" jdbcType="INTEGER"/>
         <result property="money" column="money" jdbcType="NUMERIC"/>
+        <association property="userinfo" column="uid" select="cn.net.yto.dao.UserinfoDao.queryByUid"/>
     </resultMap>
 
     <!--查询单个-->
@@ -22,7 +23,19 @@
         from yto.myorder
         where oid = #{oid}
     </select>
+    <select id="count" resultType="int">
+        select
+         count(1) num
+        from yto.myorder
+    </select>
 
+
+    <select id="queryById1" resultMap="MyorderMap">
+        select
+         *
+        from yto.myorder
+
+    </select>
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="MyorderMap">
         select
@@ -73,7 +86,7 @@
     <!--新增所有列-->
     <insert id="insert" keyProperty="oid" useGeneratedKeys="true">
         insert into yto.myorder(uid, onumber, wnumber, itemtype, remark, weight, otime, ystatus, money)
-        values (#{uid}, #{onumber}, #{wnumber}, #{itemtype}, #{remark}, #{weight}, #{otime}, #{ystatus}, #{money})
+        values (#{uid}, #{onumber}, #{wnumber}, #{itemtype}, #{remark}, #{weight}, now(), #{ystatus}, #{money})
     </insert>
 
     <insert id="insertBatch" keyProperty="oid" useGeneratedKeys="true">
@@ -132,5 +145,8 @@
     <delete id="deleteById">
         delete from yto.myorder where oid = #{oid}
     </delete>
+
+
+
 
 </mapper>

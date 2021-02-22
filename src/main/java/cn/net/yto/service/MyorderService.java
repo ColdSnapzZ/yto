@@ -20,6 +20,8 @@ public interface MyorderService {
      */
     Myorder queryById(Integer oid);
 
+    Myorder queryById1(Myorder myorder);
+
     /**
      * 查询多条数据
      *
@@ -52,5 +54,6 @@ public interface MyorderService {
      * @return 是否成功
      */
     boolean deleteById(Integer oid);
+    public int count();
 
 }
