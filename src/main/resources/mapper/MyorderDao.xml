@@ -14,6 +14,8 @@
         <result property="ystatus" column="ystatus" jdbcType="INTEGER"/>
         <result property="money" column="money" jdbcType="NUMERIC"/>
         <association property="userinfo" column="uid" select="cn.net.yto.dao.UserinfoDao.queryByUid"/>
+        <association property="orderSender" column="onumber" select="cn.net.yto.dao.OrderSenderDao.queryByOnumber"/>
+        <association property="orderConsignee" column="onumber" select="cn.net.yto.dao.OrderConsigneeDao.queryByOnumber"/>
     </resultMap>
 
     <!--查询单个-->
@@ -22,6 +24,18 @@
           oid, uid, onumber, wnumber, itemtype, remark, weight, otime, ystatus, money
         from yto.myorder
         where oid = #{oid}
+    </select>
+
+
+
+
+    <select id="selectuid" resultMap="MyorderMap">
+       SELECT oid, uid, onumber, wnumber, itemtype, remark, weight, otime, ystatus, money
+       FROM yto.myorder WHERE uid=#{uid}
+    </select>
+    <select id="selectByOid" resultMap="MyorderMap">
+       SELECT oid, uid, onumber, wnumber, itemtype, remark, weight, otime, ystatus, money
+       FROM yto.myorder WHERE oid=#{oid}
     </select>
     <select id="count" resultType="int">
         select

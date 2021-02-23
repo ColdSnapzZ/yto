@@ -1,5 +1,6 @@
 package cn.net.yto.dao;
 
+import cn.net.yto.entity.OrderConsignee;
 import cn.net.yto.entity.OrderSender;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -63,5 +64,7 @@ public interface OrderSenderDao {
      * @return 影响行数
      */
     int deleteById(Integer osid);
+
+    OrderSender queryByOnumber(String onumber);
 
 }

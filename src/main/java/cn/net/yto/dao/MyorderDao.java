@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * (Myorder)表数据库访问层
@@ -83,5 +84,11 @@ public interface MyorderDao {
      * @return 影响行数
      */
     int deleteById(Integer oid);
+    int select(Integer uid);
+
+    List<Myorder> selectuid(@Param("uid") int uid);
+
+    Myorder selectByOid(@Param("oid")int oid);
+
 
 }

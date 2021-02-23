@@ -32,12 +32,32 @@ public class Myorder implements Serializable {
     private Double money;
     private Userinfo userinfo;
 
+    private OrderSender orderSender;
+
+    private OrderConsignee orderConsignee;
+
     public Userinfo getUserinfo() {
         return userinfo;
     }
 
     public void setUserinfo(Userinfo userinfo) {
         this.userinfo = userinfo;
+    }
+
+    public OrderSender getOrderSender() {
+        return orderSender;
+    }
+
+    public void setOrderSender(OrderSender orderSender) {
+        this.orderSender = orderSender;
+    }
+
+    public OrderConsignee getOrderConsignee() {
+        return orderConsignee;
+    }
+
+    public void setOrderConsignee(OrderConsignee orderConsignee) {
+        this.orderConsignee = orderConsignee;
     }
 
     public Integer getOid() {

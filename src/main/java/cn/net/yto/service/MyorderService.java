@@ -1,8 +1,10 @@
 package cn.net.yto.service;
 
 import cn.net.yto.entity.Myorder;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * (Myorder)表服务接口
@@ -21,6 +23,7 @@ public interface MyorderService {
     Myorder queryById(Integer oid);
 
     Myorder queryById1(Myorder myorder);
+    Myorder select(Integer uid);
 
     /**
      * 查询多条数据
@@ -55,5 +58,9 @@ public interface MyorderService {
      */
     boolean deleteById(Integer oid);
     public int count();
+
+    List<Myorder> selectuid(int uid);
+
+    Myorder selectByOid(int oid);
 
 }
