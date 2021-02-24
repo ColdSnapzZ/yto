@@ -98,4 +98,12 @@ public interface CarsService {
      * @return
      */
     boolean addStowage(Stowage stowage,int cid);
+
+    /**
+     * 根据站点查询车辆
+     * @date 15:52 2021/2/24
+     * @param siteId
+     * @return java.util.List<cn.net.yto.entity.Cars>
+     */
+    List<Cars> queryBySiteId(String siteId);
 }

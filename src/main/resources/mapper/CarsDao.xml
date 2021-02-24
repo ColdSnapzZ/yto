@@ -122,4 +122,8 @@
         (#{opnumber}, #{cardid}, #{lineid}, #{putime}, #{ontime}, #{ystatus})
     </insert>
 
+    <select id="queryBySiteId" resultMap="CarsMap">
+        select cid, cname, empid, cartype, dotid, ystatus from yto.cars where dotid = #{siteId}
+    </select>
+
 </mapper>

@@ -108,4 +108,9 @@ public class CarsServiceImpl implements CarsService {
         carsDao.updateStatus(cid, 1);
         return carsDao.addStowage(stowage)>0;
     }
+
+    @Override
+    public List<Cars> queryBySiteId(String siteId) {
+        return carsDao.queryBySiteId(siteId);
+    }
 }
