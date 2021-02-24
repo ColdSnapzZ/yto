@@ -1,13 +1,18 @@
 package cn.net.yto.controller;
 
+import cn.net.yto.entity.Employee;
 import cn.net.yto.entity.Myorder;
 import cn.net.yto.service.MyorderService;
+import cn.net.yto.service.SiteService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,6 +29,8 @@ public class MyorderController {
      */
     @Resource
     private MyorderService myorderService;
+    @Resource
+    private SiteService siteService;
 
     /**
      * 通过主键查询单条数据
@@ -31,53 +38,34 @@ public class MyorderController {
      * @param id 主键
      * @return 单条数据
      */
-    @ResponseBody
     @GetMapping("selectOne")
     public Myorder selectOne(Integer id) {
         return this.myorderService.queryById(id);
     }
+
+    /**
+     * zht
+     * @return
+     */
+    @GetMapping("selectByStatus")
     @ResponseBody
-    @GetMapping(value = "selectAll",produces = {"application/json;charset=UTF-8"})
-    public Map<String,Object> selectAll(int page, int  limit){
-        Map<String, Object> map = new HashMap<>();
-        map.put("code", 0);
-        map.put("mag", "");
-        map.put("count",myorderService.count());
-        map.put("data",myorderService.queryAllByLimit((page-1)*limit, limit));
+    public Map<String, Object> selectByStatusAndArea(HttpSession session,String area, int page, int limit){
+        //获取员工域对象
+        Employee emp = (Employee) session.getAttribute("emp");
+        //调用SiteService.selectBySiteId方法
+        //Site site = siteService.selectByArea(area);
+        //调用myorderService的selectByStatusAndArea方法
+        List<Myorder> myorders = myorderService.selectByStatusAndArea(1, "湖南省长沙市雨花区",page,limit);
+        //创建map集合
+        HashMap<String, Object> map=new HashMap<>();
+        //设置状态
+        map.put("code",0);
+        //设置总行数
+        map.put("count", myorderService.countByStatusAndArea(1,"湖南省长沙市雨花区"));
+        //设置数据
+        map.put("data", myorders);
+        //返回map集合
         return map;
-    }
-    @ResponseBody
-    @GetMapping("delete")
-    public boolean delete(Integer oid) {
-        return this.myorderService.deleteById(oid);
-    }
-
-    @ResponseBody
-   @PostMapping("insert")
-   public Myorder insert(Myorder myorder){
-        return this.myorderService.insert(myorder);
-
-   }
-    @ResponseBody
-   @PostMapping("update")
-    public Myorder update(Myorder myorder){
-       System.out.println("myorder = " + myorder);
-        return this.myorderService.update(myorder);
-
-   }
-
-    @RequestMapping("seletuid")
-    public ModelAndView selectuid(){
-        ModelAndView n=new ModelAndView();
-        n.addObject("uid",myorderService.selectuid(12345));
-        n.setViewName("/front/payOrder.jsp");
-        return n;
-
-    }
-    @ResponseBody
-    @RequestMapping("selectByOid")
-    public Myorder selectByOid(int oid){
-        return myorderService.selectByOid(oid);
     }
 
 
