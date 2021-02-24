@@ -76,4 +76,19 @@ public class MyorderServiceImpl implements MyorderService {
     public boolean deleteById(Integer oid) {
         return this.myorderDao.deleteById(oid) > 0;
     }
+
+    @Override
+    public List<Myorder> selectByStatusAndArea(int status, String area,int offset,int limit) {
+        return myorderDao.selectByStatusAndArea(status, area,(offset-1)*limit,limit);
+    }
+
+    @Override
+    public int countByStatusAndArea(int status, String area) {
+        return myorderDao.countByStatusAndArea(status, area);
+    }
+
+    @Override
+    public int updateStatus(String onumber, int status) {
+        return myorderDao.updateStatus(onumber, status);
+    }
 }

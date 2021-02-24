@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.net.yto.dao.OrderConsigneeDao">
+
+    <resultMap id="BaseResultMap" type="cn.net.yto.entity.OrderConsignee">
+        <!--@Table order_consignee-->
+        <result property="ocid" column="ocid" jdbcType="INTEGER"/>
+        <result property="onumber" column="onumber" jdbcType="VARCHAR"/>
+        <result property="cname" column="cname" jdbcType="VARCHAR"/>
+        <result property="cphone" column="cphone" jdbcType="VARCHAR"/>
+        <result property="cdistrict" column="cdistrict" jdbcType="VARCHAR"/>
+        <result property="cdetailed" column="cdetailed" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          ocid, onumber, cname, cphone, cdistrict, cdetailed
+        from yto.order_consignee
+        where ocid = #{ocid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          ocid, onumber, cname, cphone, cdistrict, cdetailed
+        from yto.order_consignee
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          ocid, onumber, cname, cphone, cdistrict, cdetailed
+        from yto.order_consignee
+        <where>
+            <if test="ocid != null">
+                and ocid = #{ocid}
+            </if>
+            <if test="onumber != null and onumber != ''">
+                and onumber = #{onumber}
+            </if>
+            <if test="cname != null and cname != ''">
+                and cname = #{cname}
+            </if>
+            <if test="cphone != null and cphone != ''">
+                and cphone = #{cphone}
+            </if>
+            <if test="cdistrict != null and cdistrict != ''">
+                and cdistrict = #{cdistrict}
+            </if>
+            <if test="cdetailed != null and cdetailed != ''">
+                and cdetailed = #{cdetailed}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="ocid" useGeneratedKeys="true">
+        insert into yto.order_consignee(onumber, cname, cphone, cdistrict, cdetailed)
+        values (#{onumber}, #{cname}, #{cphone}, #{cdistrict}, #{cdetailed})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update yto.order_consignee
+        <set>
+            <if test="onumber != null and onumber != ''">
+                onumber = #{onumber},
+            </if>
+            <if test="cname != null and cname != ''">
+                cname = #{cname},
+            </if>
+            <if test="cphone != null and cphone != ''">
+                cphone = #{cphone},
+            </if>
+            <if test="cdistrict != null and cdistrict != ''">
+                cdistrict = #{cdistrict},
+            </if>
+            <if test="cdetailed != null and cdetailed != ''">
+                cdetailed = #{cdetailed},
+            </if>
+        </set>
+        where ocid = #{ocid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from yto.order_consignee where ocid = #{ocid}
+    </delete>
+
+</mapper>

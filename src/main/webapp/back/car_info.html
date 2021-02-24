@@ -23,11 +23,17 @@
             ,cols: [[ //表头
                 {field: 'stid', title: 'ID',  sort: true, fixed: 'left',hide: true}
                 ,{field: 'opnumber', title: '合包号'}
-                ,{field: 'cardid', title: '车牌号', sort: true}
+                ,{field: 'cardid', title: '车牌号'}
                 ,{field: 'lineid', title: '路线'}
-                ,{field: 'putime', title: '发出时间'}
-                ,{field: 'ontime', title: '到达时间'}
-                ,{field: 'ystatus',  width:100, event:'ystatus', title: '状态'  }
+                ,{field: 'putime', title: '发出时间', sort: true}
+                ,{field: 'ontime', title: '到达时间', sort: true}
+                ,{field: 'ystatus',  width:100, event:'ystatus', title: '状态' ,templet:function (e) {
+                if (e.ystatus==1){
+                    return '运输中';
+                }else if (e.ystatus==2){
+                    return '已完成';
+                }
+                }}
             ]]
             ,id:'carinfo'
         });

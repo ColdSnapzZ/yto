@@ -1,6 +1,7 @@
 package cn.net.yto.controller;
 
 import cn.net.yto.entity.Cars;
+import cn.net.yto.entity.Employee;
 import cn.net.yto.entity.Stowage;
 import cn.net.yto.service.CarsService;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,9 +59,9 @@ public class CarsController {
      */
     @RequestMapping("selectAllByLimit")
     @ResponseBody
-    public Map<String, Object> selectAllByLimit(int page, int limit){
+    public Map<String, Object> selectAllByLimit(HttpSession session,int page, int limit){
         //获取session域得到员工对象
-
+        Employee emp = (Employee) session.getAttribute("emp");
         //调用分页查询方法
         List<Cars> cars = carsService.queryAllByLimit((page-1)*limit,limit,"BH20210108");
         //创建map集合
