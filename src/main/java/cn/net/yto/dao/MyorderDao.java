@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * (Myorder)表数据库访问层
@@ -14,7 +15,7 @@ import java.util.List;
  */
 @Mapper
 public interface MyorderDao {
-
+    public int count();
     /**
      * 通过ID查询单条数据
      *
@@ -22,6 +23,9 @@ public interface MyorderDao {
      * @return 实例对象
      */
     Myorder queryById(Integer oid);
+
+
+    Myorder queryById1(Myorder myorder);
 
     /**
      * 查询指定行数据
@@ -80,6 +84,12 @@ public interface MyorderDao {
      * @return 影响行数
      */
     int deleteById(Integer oid);
+    int select(Integer uid);
+
+    List<Myorder> selectuid(@Param("uid") int uid);
+
+    Myorder selectByOid(@Param("oid")int oid);
+
 
     /**
      * zht

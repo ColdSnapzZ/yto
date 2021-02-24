@@ -4,6 +4,7 @@ import cn.net.yto.entity.Myorder;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * (Myorder)表服务接口
@@ -20,6 +21,9 @@ public interface MyorderService {
      * @return 实例对象
      */
     Myorder queryById(Integer oid);
+
+    Myorder queryById1(Myorder myorder);
+    Myorder select(Integer uid);
 
     /**
      * 查询多条数据
@@ -53,6 +57,11 @@ public interface MyorderService {
      * @return 是否成功
      */
     boolean deleteById(Integer oid);
+    public int count();
+
+    List<Myorder> selectuid(int uid);
+
+    Myorder selectByOid(int oid);
 
     /**
      * 根据订单状态和地区查询订单
