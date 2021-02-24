@@ -3,7 +3,6 @@
 <mapper namespace="cn.net.yto.dao.OrderConsigneeDao">
 
     <resultMap id="BaseResultMap" type="cn.net.yto.entity.OrderConsignee">
-        <!--@Table order_consignee-->
         <result property="ocid" column="ocid" jdbcType="INTEGER"/>
         <result property="onumber" column="onumber" jdbcType="VARCHAR"/>
         <result property="cname" column="cname" jdbcType="VARCHAR"/>
@@ -89,7 +88,6 @@
         delete from yto.order_consignee where ocid = #{ocid}
     </delete>
 
-<<<<<<< HEAD
     <select id="queryByOnumber" resultMap="BaseResultMap" >
         select
           ocid, onumber, cname, cphone, cdistrict, cdetailed
@@ -97,6 +95,4 @@
         where onumber = #{onumber}
     </select>
 
-=======
->>>>>>> 1011ff0 (新增订单查询分配)
 </mapper>

@@ -160,10 +160,6 @@
         delete from yto.myorder where oid = #{oid}
     </delete>
 
-<<<<<<< HEAD
-
-
-=======
     <select id="selectByStatusAndArea" resultMap="MyorderMap">
         select
             oid, uid, mo.onumber, wnumber, itemtype, remark, weight, otime, ystatus, money
@@ -191,6 +187,6 @@
         where
             onumber=#{onumber}
     </update>
->>>>>>> 1011ff0 (新增订单查询分配)
+
 
 </mapper>

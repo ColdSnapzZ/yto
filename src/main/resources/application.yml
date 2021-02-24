@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     username: root
-    password: 123456
+    password: 1234
     url: jdbc:mysql://localhost:3306/yto
     driver-class-name: com.mysql.jdbc.Driver
   redis:
@@ -17,15 +17,7 @@ spring:
 
 mybatis:
   mapper-locations: mapper/*.xml
-<<<<<<< HEAD
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-=======
   #打印sql
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
-
-
->>>>>>> 1011ff0 (新增订单查询分配)
 

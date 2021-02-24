@@ -104,6 +104,7 @@ public class MyorderServiceImpl implements MyorderService {
         return myorderDao.selectByOid(oid);
     }
 
+    @Override
     public List<Myorder> selectByStatusAndArea(int status, String area,int offset,int limit) {
         return myorderDao.selectByStatusAndArea(status, area,(offset-1)*limit,limit);
     }
