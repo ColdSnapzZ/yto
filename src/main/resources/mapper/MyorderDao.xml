@@ -37,6 +37,11 @@
        SELECT oid, uid, onumber, wnumber, itemtype, remark, weight, otime, ystatus, money
        FROM yto.myorder WHERE oid=#{oid}
     </select>
+
+    <select id="selectonumber" resultMap="MyorderMap">
+       SELECT oid, uid, onumber, wnumber, itemtype, remark, weight, otime, ystatus, money
+       FROM yto.myorder WHERE ystatus=#{ystatus} and onumber=#{onumber}
+    </select>
     <select id="count" resultType="int">
         select
          count(1) num

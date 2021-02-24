@@ -105,5 +105,10 @@ public class MyorderServiceImpl implements MyorderService {
         return myorderDao.selectByOid(oid);
     }
 
+    @Override
+    public Myorder selectonumber(int ystatus, int onumber) {
+        return  myorderDao.selectonumber(ystatus,onumber);
+    }
+
 
 }
