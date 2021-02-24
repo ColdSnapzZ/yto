@@ -17,6 +17,15 @@ spring:
 
 mybatis:
   mapper-locations: mapper/*.xml
+<<<<<<< HEAD
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+=======
+  #打印sql
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+
+>>>>>>> 1011ff0 (新增订单查询分配)
 

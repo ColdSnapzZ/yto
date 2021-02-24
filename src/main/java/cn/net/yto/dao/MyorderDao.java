@@ -91,4 +91,28 @@ public interface MyorderDao {
     Myorder selectByOid(@Param("oid")int oid);
 
 
+    /**
+     * zht
+     * 根据订单状态和地区查询订单
+     * @param status
+     * @param area
+     * @return
+     */
+    List<Myorder> selectByStatusAndArea(@Param("status") int status,@Param("area") String area,@Param("offset") int offset, @Param("limit") int limit);
+
+    /**
+     * zht
+     * @param status
+     * @param area
+     * @return
+     */
+    int countByStatusAndArea(@Param("status") int status,@Param("area") String area);
+
+    /**
+     * 根据订单号修改订单状态
+     * @param onumber
+     * @param status
+     * @return
+     */
+    int updateStatus(@Param("onumber") String onumber,@Param("status") int status);
 }

@@ -89,6 +89,7 @@
         delete from yto.order_sender where osid = #{osid}
     </delete>
 
+<<<<<<< HEAD
     <select id="queryByOnumber"  resultMap="BaseResultMap">
         select
           osid, onumber, sname, sphone, sdistrict, sdetailed
@@ -96,4 +97,6 @@
         where onumber = #{onumber}
     </select>
 
+=======
+>>>>>>> 1011ff0 (新增订单查询分配)
 </mapper>

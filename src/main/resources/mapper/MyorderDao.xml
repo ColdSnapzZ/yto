@@ -160,7 +160,37 @@
         delete from yto.myorder where oid = #{oid}
     </delete>
 
+<<<<<<< HEAD
 
 
+=======
+    <select id="selectByStatusAndArea" resultMap="MyorderMap">
+        select
+            oid, uid, mo.onumber, wnumber, itemtype, remark, weight, otime, ystatus, money
+        from
+            yto.myorder mo,yto.order_sender os
+        where
+            mo.onumber=os.onumber and mo.ystatus= #{status} and os.sdistrict = #{area}
+        limit
+            #{offset},#{limit}
+    </select>
+
+    <select id="countByStatusAndArea" resultType="int">
+        select
+            count(mo.oid)
+        from
+            yto.myorder mo,yto.order_sender os
+        where
+            mo.onumber=os.onumber and mo.ystatus= #{status} and os.sdistrict = #{area}
+    </select>
+
+    <update id="updateStatus">
+        update yto.myorder
+        set
+            ystatus=#{status}
+        where
+            onumber=#{onumber}
+    </update>
+>>>>>>> 1011ff0 (新增订单查询分配)
 
 </mapper>
