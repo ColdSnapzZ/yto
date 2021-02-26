@@ -62,6 +62,7 @@ public interface MyorderService {
     List<Myorder> selectuid(int uid);
 
     Myorder selectByOid(int oid);
+    Myorder selectonumber(int ystatus,int onumber);
 
     /**
      * 根据订单状态和地区查询订单

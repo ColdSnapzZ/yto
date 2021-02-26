@@ -89,11 +89,4 @@
         delete from yto.order_sender where osid = #{osid}
     </delete>
 
-    <select id="queryByOnumber"  resultMap="BaseResultMap">
-        select
-          osid, onumber, sname, sphone, sdistrict, sdetailed
-        from yto.order_sender
-        where onumber = #{onumber}
-    </select>
-
 </mapper>

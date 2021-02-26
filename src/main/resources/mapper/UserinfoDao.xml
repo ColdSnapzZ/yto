@@ -2,8 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.net.yto.dao.UserinfoDao">
 
-    <resultMap id="BaseResultMap" type="cn.net.yto.entity.Userinfo">
-        <!--@Table userinfo-->
+    <resultMap type="cn.net.yto.entity.Userinfo" id="UserinfoMap">
         <result property="id" column="id" jdbcType="INTEGER"/>
         <result property="uid" column="uid" jdbcType="VARCHAR"/>
         <result property="username" column="username" jdbcType="VARCHAR"/>
@@ -16,104 +15,21 @@
     </resultMap>
 
     <!--查询单个-->
-    <select id="queryById" resultMap="BaseResultMap">
+    <select id="queryByUsernameAndPassword" resultMap="UserinfoMap">
         select
-          id, uid, username, phone, gender, birthday, email, detailed, headImg
+          id, uid, username, password, phone, gender, birthday, email, detailed, headImg
         from yto.userinfo
-        where id = #{id}
-    </select>
-    <select id="queryByUid" resultMap="BaseResultMap">
-        select
-          id, uid, username, phone, gender, birthday, email, detailed, headImg
-        from yto.userinfo
-        where uid = #{uid}
+        where username = #{username} and password = #{password}
     </select>
 
-    <!--查询指定行数据-->
-    <select id="queryAllByLimit" resultMap="BaseResultMap">
-        select
-          id, uid, username, phone, gender, birthday, email, detailed, headImg
-        from yto.userinfo
-        limit #{offset}, #{limit}
-    </select>
 
-    <!--通过实体作为筛选条件查询-->
-    <select id="queryAll" resultMap="BaseResultMap">
-        select
-          id, uid, username, phone, gender, birthday, email, detailed, headImg
-        from yto.userinfo
-        <where>
-            <if test="id != null">
-                and id = #{id}
-            </if>
-            <if test="uid != null and uid != ''">
-                and uid = #{uid}
-            </if>
-            <if test="username != null and username != ''">
-                and username = #{username}
-            </if>
-            <if test="phone != null and phone != ''">
-                and phone = #{phone}
-            </if>
-            <if test="gender != null and gender != ''">
-                and gender = #{gender}
-            </if>
-            <if test="birthday != null and birthday != ''">
-                and birthday = #{birthday}
-            </if>
-            <if test="email != null and email != ''">
-                and email = #{email}
-            </if>
-            <if test="detailed != null and detailed != ''">
-                and detailed = #{detailed}
-            </if>
-            <if test="headimg != null and headimg != ''">
-                and headImg = #{headimg}
-            </if>
-        </where>
-    </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+    <insert id="insert">
         insert into yto.userinfo(uid, username, phone, gender, birthday, email, detailed, headImg)
         values (#{uid}, #{username}, #{phone}, #{gender}, #{birthday}, #{email}, #{detailed}, #{headimg})
     </insert>
 
-    <!--通过主键修改数据-->
-    <update id="update">
-        update yto.userinfo
-        <set>
-            <if test="uid != null and uid != ''">
-                uid = #{uid},
-            </if>
-            <if test="username != null and username != ''">
-                username = #{username},
-            </if>
-            <if test="phone != null and phone != ''">
-                phone = #{phone},
-            </if>
-            <if test="gender != null and gender != ''">
-                gender = #{gender},
-            </if>
-            <if test="birthday != null and birthday != ''">
-                birthday = #{birthday},
-            </if>
-            <if test="email != null and email != ''">
-                email = #{email},
-            </if>
-            <if test="detailed != null and detailed != ''">
-                detailed = #{detailed},
-            </if>
-            <if test="headimg != null and headimg != ''">
-                headImg = #{headimg},
-            </if>
-        </set>
-        where id = #{id}
-    </update>
 
-    <!--通过主键删除-->
-    <delete id="deleteById">
-        delete from yto.userinfo where id = #{id}
-    </delete>
 
 </mapper>

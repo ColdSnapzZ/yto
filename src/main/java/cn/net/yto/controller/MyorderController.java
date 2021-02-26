@@ -3,6 +3,7 @@ package cn.net.yto.controller;
 import cn.net.yto.entity.Employee;
 import cn.net.yto.entity.Myorder;
 import cn.net.yto.service.MyorderService;
+import cn.net.yto.service.SiteService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,8 @@ public class MyorderController {
      */
     @Resource
     private MyorderService myorderService;
+    @Resource
+    private SiteService siteService;
 
     /**
      * 通过主键查询单条数据

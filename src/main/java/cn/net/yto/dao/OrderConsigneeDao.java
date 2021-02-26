@@ -64,8 +64,6 @@ public interface OrderConsigneeDao {
      */
     int deleteById(Integer ocid);
 
-
     OrderConsignee queryByOnumber(String onumber);
-
 
 }

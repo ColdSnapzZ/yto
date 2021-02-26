@@ -130,7 +130,7 @@
 									<td style="height: 40px; width: 50px;">序号</td>
 									<td style="height: 40px; width: 190px;">订单号</td>
 									<td style="height: 40px; width: 190px;">运单号</td>
-									<td style="height: 40px; width: 300px;">寄件人/收件人</td>
+								 	<td style="height: 40px; width: 300px;">寄件人/收件人</td>
 									<td style="height: 40px; width: 279px;">下单时间</td>
 									<td style="height: 40px; width: 277px;">当前进度</td>
 									<td style="height: 40px; width: 277px;">操作</td>

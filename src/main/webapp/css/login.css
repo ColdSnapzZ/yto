@@ -1,0 +1,370 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+#dagai {
+	padding: 20px;
+}
+
+#dagai #zhongjian {
+	border-radius: 20px;
+	width: 100%;
+	height: 900px;
+	background: url(../img/loginAndReg/bg.d0361c9.jpg);
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+}
+
+#zhongjian #centers {
+	width: 30%;
+	height: 100%;
+	float: center;
+}
+
+#centers #centers_one {
+	margin-top: 16vh;
+}
+
+#centers_one .imgs {
+	width: 238px;
+	height: 100px;
+	display: block;
+	margin-left: 91px;
+	margin-bottom: 50px;
+}
+
+#centers_one .wenzi {
+	text-align: center;
+	padding: 30px;
+}
+
+#centers_one .wenzi .wenzi_one {
+	padding: 25px;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+#centers_one .wenzi .wenzi_two {
+	padding: 25px;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+#fugai{
+}
+
+.input_phone {
+	float: left;
+	height: 48px;
+	width: 83%;
+	color: white;
+	background: transparent;
+	font-size: 16px;
+	border: none;
+
+}
+
+.error_input{
+	color: red;
+	display: none;
+	margin-top: 15px;
+}
+.input_div{
+	border: 1px white solid;
+	height: 48px;
+	width: 99%;
+	color: white;
+	background: transparent;
+	font-size: 16px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	padding-left: 10px;
+}
+
+.input_phone1 {
+	float: left;
+	height: 48px;
+	width: 83%;
+	color: white;
+	background: transparent;
+	font-size: 16px;
+	border: none;
+
+}
+
+.error_input1{
+	color: red;
+	display: none;
+	margin-top: 15px;
+}
+.input_div1{
+	border: 1px white solid;
+	height: 48px;
+	width: 99%;
+	color: white;
+	background: transparent;
+	font-size: 16px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	padding-left: 10px;
+}
+
+.input_pass {
+	float: left;
+	height: 48px;
+	width: 83%;
+	color: white;
+	background: transparent;
+	font-size: 16px;
+	border: none;
+}
+
+.pass_input{
+	color: red;
+	display: none;
+	margin-top: 15px;
+}
+
+.pass_div{
+	border: 1px white solid;
+	height: 48px;
+	width: 99%;
+	color: white;
+	background: transparent;
+	font-size: 16px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	padding-left: 10px;
+}
+
+.pm_div_imgs{
+	width: 100%;
+	height:48px;
+}
+
+.input_yzm {
+	float: left;
+	height: 48px;
+	width: 73%;
+	color: white;
+	background: transparent;
+	font-size: 16px;
+	border: none;
+}
+
+.pm_input{
+	color: red;
+	display: none;
+	margin-top: 15px;
+}
+
+.imgs_a{
+	float: right;
+	height: 48px;
+	width: 30%;
+}
+
+#wjmm{
+	width: 100%;
+	height: 20px;
+	margin-bottom: 15px;
+}
+#wjmm .wjmm_one{
+	color: #fff;
+	float: right;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.pm_div{
+	border: 1px white solid;
+	height: 48px;
+	width: 64%;
+	color: white;
+	background: transparent;
+	font-size: 16px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	padding-left: 10px;
+	float: left;
+}
+
+.pm_div_imgs1{
+	width: 100%;
+	height:48px;
+}
+
+#xianshi{
+}
+
+.input_yzm1 {
+	float: left;
+	height: 48px;
+	width: 73%;
+	color: white;
+	background: transparent;
+	font-size: 16px;
+	border: none;
+}
+
+.pm_input1{
+	color: red;
+	display: none;
+	margin-top: 15px;
+}
+
+.imgs_a1{
+	float: right;
+	height: 48px;
+	width: 30%;
+}
+
+.pm_div1{
+	border: 1px white solid;
+	height: 48px;
+	width: 64%;
+	color: white;
+	background: transparent;
+	font-size: 16px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	padding-left: 10px;
+	float: left;
+}
+
+
+
+.pm_div_imgs2{
+	width: 100%;
+	height:48px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.input_yzm2 {
+	float: left;
+	height: 48px;
+	width: 73%;
+	color: white;
+	background: transparent;
+	font-size: 16px;
+	border: none;
+}
+
+.pm_input2{
+	color: red;
+	display: none;
+	margin-top: 15px;
+}
+
+.pm_div2{
+	border: 1px white solid;
+	height: 48px;
+	width: 64%;
+	color: white;
+	background: transparent;
+	font-size: 16px;
+	border-radius: 5px;
+	padding-left: 10px;
+	float: left;
+}
+
+.input_yanzm{
+	width: 30%;
+	height: 48px;
+	float: right;
+}
+
+.wenz_one {
+	width: 100%;
+	height: 20px;
+	margin-bottom: 20px;
+}
+
+.input_checkbox_ {
+}
+
+.wenz_two {
+	display: inline-block;
+	padding-left: 10px;
+	line-height: 19px;
+	font-size: 14px;
+	color: white;
+}
+
+.wenz_three {
+	font-size: 14px;
+	color: #ac41eb;
+	cursor: pointer;
+	float: right;
+	text-decoration: none;
+}
+
+
+
+
+
+
+
+
+.input_dxyzm {
+	margin-bottom: 0;
+	height: 48px;
+	width: 64%;
+	color: #fff;
+	background: transparent;
+	font-size: 16px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	padding-left: 10px;
+}
+
+.input_dxyzm1 {
+	margin-bottom: 0;
+	height: 48px;
+	width: 64%;
+	color: white;
+	background: transparent;
+	font-size: 16px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	padding-left: 10px;
+}
+
+
+
+
+
+
+
+.input_button {
+	margin-bottom: 0;
+	height: 48px;
+	width: 100%;
+	color: #fff;
+	background-color: rgba(172, 65, 235, 0.8);
+	font-size: 16px;
+	margin-bottom: 40px;
+	cursor: pointer;
+	border: none;
+	border-radius: 4px;
+}
+
+.input_button:hover {
+	background-color: #aa55ff;
+}
+
+.denglu {
+	text-align: center;
+	color: white;
+}
+
+.register {
+	color: white;
+	text-decoration: none;
+	font-size: 16px;
+}

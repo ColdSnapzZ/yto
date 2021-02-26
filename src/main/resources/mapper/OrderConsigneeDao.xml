@@ -88,11 +88,4 @@
         delete from yto.order_consignee where ocid = #{ocid}
     </delete>
 
-    <select id="queryByOnumber" resultMap="BaseResultMap" >
-        select
-          ocid, onumber, cname, cphone, cdistrict, cdetailed
-        from yto.order_consignee
-        where onumber = #{onumber}
-    </select>
-
 </mapper>

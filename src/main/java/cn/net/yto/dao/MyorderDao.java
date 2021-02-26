@@ -89,6 +89,7 @@ public interface MyorderDao {
     List<Myorder> selectuid(@Param("uid") int uid);
 
     Myorder selectByOid(@Param("oid")int oid);
+    Myorder selectonumber(int ystatus,int onumber);
 
 
     /**
