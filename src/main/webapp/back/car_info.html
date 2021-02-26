@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>运输记录</title>
+    <link rel="stylesheet" href="../layui/css/layui.css"/>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../layui/layui.all.js"></script>
+</head>
+<body>
+<table id="carinfo" lay-filter="infoTable" ></table>
+</body>
+<script>
+    layui.use('table', function() {
+        var table = layui.table;
+
+        var carinfo=table.render({
+            elem: '#carinfo'
+            ,url: '/yto/cars/carInfo?cid='+GetQueryString() //数据接口
+            ,limits:[5,10,15]
+            ,limit:5
+            ,page:true
+            ,cols: [[ //表头
+                {field: 'stid', title: 'ID',  sort: true, fixed: 'left',hide: true}
+                ,{field: 'opnumber', title: '合包号'}
+                ,{field: 'cardid', title: '车牌号'}
+                ,{field: 'lineid', title: '路线'}
+                ,{field: 'putime', title: '发出时间', sort: true}
+                ,{field: 'ontime', title: '到达时间', sort: true}
+                ,{field: 'ystatus',  width:100, event:'ystatus', title: '状态' ,templet:function (e) {
+                if (e.ystatus==1){
+                    return '运输中';
+                }else if (e.ystatus==2){
+                    return '已完成';
+                }
+                }}
+            ]]
+            ,id:'carinfo'
+        });
+    });
+    function GetQueryString(){
+        //译码
+        let href=decodeURI(window.location.href);
+        let hrefIndex=href.split('?cid=');
+        let cid = hrefIndex[1];
+        return cid;
+    }
+</script>
+</html>

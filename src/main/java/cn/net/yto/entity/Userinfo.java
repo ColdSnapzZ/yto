@@ -31,6 +31,29 @@ public class Userinfo implements Serializable {
 
     private String password;
 
+ * @since 2021-01-11 18:29:24
+ */
+public class Userinfo implements Serializable {
+    private static final long serialVersionUID = -82149267004449543L;
+
+    private Integer id;
+
+    private String uid;
+
+    private String username;
+
+    private String phone;
+
+    private String gender;
+
+    private String birthday;
+
+    private String email;
+
+    private String detailed;
+
+    private String headimg;
+
 
     public Integer getId() {
         return id;

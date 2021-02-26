@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * (Myorder)表服务实现类
@@ -28,6 +29,17 @@ public class MyorderServiceImpl implements MyorderService {
     @Override
     public Myorder queryById(Integer oid) {
         return this.myorderDao.queryById(oid);
+    }
+
+    @Override
+    public Myorder queryById1(Myorder myorder) {
+        return this.myorderDao.queryById1(myorder);
+    }
+
+    @Override
+    public Myorder select(Integer uid) {
+        this.myorderDao.select(1);
+        return this.select(myorderDao.select(1));
     }
 
     /**
@@ -66,6 +78,7 @@ public class MyorderServiceImpl implements MyorderService {
         return this.queryById(myorder.getOid());
     }
 
+
     /**
      * 通过主键删除数据
      *
@@ -76,4 +89,21 @@ public class MyorderServiceImpl implements MyorderService {
     public boolean deleteById(Integer oid) {
         return this.myorderDao.deleteById(oid) > 0;
     }
+
+    @Override
+    public int count() {
+        return this.myorderDao.count();
+    }
+
+    @Override
+    public List<Myorder> selectuid(int uid) {
+        return myorderDao.selectuid(uid);
+    }
+
+    @Override
+    public Myorder selectByOid(int oid) {
+        return myorderDao.selectByOid(oid);
+    }
+
+
 }

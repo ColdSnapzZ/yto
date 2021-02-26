@@ -1,8 +1,10 @@
 package cn.net.yto.service;
 
 import cn.net.yto.entity.Myorder;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * (Myorder)表服务接口
@@ -19,6 +21,9 @@ public interface MyorderService {
      * @return 实例对象
      */
     Myorder queryById(Integer oid);
+
+    Myorder queryById1(Myorder myorder);
+    Myorder select(Integer uid);
 
     /**
      * 查询多条数据
@@ -52,5 +57,34 @@ public interface MyorderService {
      * @return 是否成功
      */
     boolean deleteById(Integer oid);
+    public int count();
 
+    List<Myorder> selectuid(int uid);
+
+    Myorder selectByOid(int oid);
+    Myorder selectonumber(int ystatus,int onumber);
+
+    /**
+     * 根据订单状态和地区查询订单
+     * @param status
+     * @param area
+     * @return
+     */
+    List<Myorder> selectByStatusAndArea(@Param("status") int status, @Param("area") String area,int offset,int limit);
+
+    /**
+     * zht
+     * @param status
+     * @param area
+     * @return
+     */
+    int countByStatusAndArea(@Param("status") int status,@Param("area") String area);
+
+    /**
+     * 根据订单号修改订单状态
+     * @param onumber
+     * @param status
+     * @return
+     */
+    int updateStatus(@Param("onumber") String onumber,@Param("status") int status);
 }
