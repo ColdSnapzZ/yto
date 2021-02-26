@@ -105,5 +105,25 @@ public class MyorderServiceImpl implements MyorderService {
         return myorderDao.selectByOid(oid);
     }
 
+    @Override
+    public Myorder selectonumber(int ystatus, int onumber) {
+        return myorderDao.selectonumber(ystatus,onumber);
+    }
+
+    @Override
+    public List<Myorder> selectByStatusAndArea(int status, String area, int offset, int limit) {
+        return myorderDao.selectByStatusAndArea(status, area, offset, limit);
+    }
+
+    @Override
+    public int countByStatusAndArea(int status, String area) {
+        return myorderDao.countByStatusAndArea(status, area);
+    }
+
+    @Override
+    public int updateStatus(String onumber, int status) {
+        return myorderDao.updateStatus(onumber, status);
+    }
+
 
 }
