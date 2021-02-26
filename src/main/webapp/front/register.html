@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="../css/regiter.css" rel="stylesheet" type="text/css" />
+	<meta charset="utf-8">
+	<title>圆通会员</title>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<div id="dagai">
+	<div id="zhongjian">
+		<div id="centers">
+			<div id="centers_one">
+				<img src="../img/loginAndReg/dwonload1.png" class="imgs">
+				<div class="wenzi">注册</div>
+				<form id="reg">
+
+					<div class="input_div">
+						<input type="text" name="phone" id="uname" onfocus="outgb(this)" maxlength="11" placeholder="11位手机号" class="input_phone">
+						<span class="error_input">手机号格式不正确</span>
+					</div>
+
+					<div class="pm_div_imgs">
+						<div class="pm_div">
+							<input type="text" id="pm" onfocus="outgb(this)" placeholder="输入图形验证码" class="input_yzm">
+							<span class="pm_input">不能为空</span>
+						</div>
+						<img src="../img/loginAndReg/download2.png" class="imgs_a">
+					</div>
+
+					<input type="text" placeholder="输入短信验证码" class="input_dxyzm">
+
+					<div class="pass_div">
+						<input type="password" name="password" id="pass" onfocus="outgb(this)" maxlength="25" placeholder="8-25位密码数字、字母组合" class="input_pass">
+						<span class="pass_input">密码由8-25位数字、字母组成</span>
+					</div>
+
+					<div class="password_div">
+						<input type="password" id="password" onfocus="outgb(this)" maxlength="25" placeholder="确认密码" class="input_password">
+						<span class="password_input">密码不能为空</span>
+					</div>
+
+					<div class="wenzi_zero">
+						<input type="checkbox" class="input_checkbox_">
+						<span class="wenzi_one">登录/注册即表示您已阅读、理解并同意</span>
+						<a data-v-fa4563d0="" class="wenzi_two">《圆通速递隐私政策》</a>
+					</div>
+					<input type="button" id="register_btn" class="input_button" value="注册" />
+					<div class="wenzi_three">
+						<a href="login.html" class="login">登录</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<script>
+	$(function() {
+		$("#uname").blur(function() {
+			if ($("#uname").val() == "" || $("#uname").val().length < 11) {
+				$(".input_div").css("border", "1px red solid");
+				$(".error_input").css("display", "block");
+
+			} else {
+				$(".error_input").css("display", "none");
+				$(".input_div").css("border", "1px #67c23a solid");
+			}
+		});
+
+		$("#pm").blur(function() {
+			if ($("#pm").val() == "" || $("#pm").val().length < 11) {
+				$(".pm_div").css("border", "1px red solid");
+				$(".pm_input").css("display", "block");
+
+			} else {
+				$(".pm_input").css("display", "none");
+				$(".pm_div").css("border", "1px #67c23a solid");
+			}
+		});
+
+		$("#pass").blur(function() {
+			var uPattern = /^.*(?=.{8,25})(\d+[a-zA-Z]+|[a-zA-Z]+\d+)([0-9a-zA-Z]*)$/;
+			var reg = new RegExp(uPattern);
+
+			var result = reg.test($("#pass").val());
+			if (result == true) {
+				$(".pass_input").css("display", "none");
+				$(".pass_div").css("border", "1px #67c23a solid");
+
+			} else {
+				$(".pass_div").css("border", "1px red solid");
+				$(".pass_input").css("display", "block");
+			}
+		});
+
+		$("#password").blur(function() {
+			if ($("#pass").val() == $("#password").val() && $("#password").val().length > 0) {
+				$(".password_input").css("display", "none");
+				$(".password_div").css("border", "1px #67c23a solid");
+
+			} else {
+				$(".password_div").css("border", "1px red solid");
+				$(".password_input").css("display", "block");
+			}
+
+		});
+
+
+	})
+
+	function outgb(obj) {
+		$(obj).parent().css("border", "1px white solid");
+	}
+
+	$(function () {
+		$("#register_btn").click(function () {
+			console.log($("#reg").serialize())
+		});
+	});
+</script>
+</html>
