@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
 
 /**
  * (Myorder)表服务实现类
@@ -103,6 +102,11 @@ public class MyorderServiceImpl implements MyorderService {
     @Override
     public Myorder selectByOid(int oid) {
         return myorderDao.selectByOid(oid);
+    }
+
+    @Override
+    public Myorder selectonumber(int ystatus, int onumber) {
+        return myorderDao.selectonumber(ystatus, onumber);
     }
 
     @Override
