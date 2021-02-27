@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * (Userinfo)表控制层
@@ -27,23 +27,29 @@ public class UserinfoController {
 
     @RequestMapping("login")
     @ResponseBody
-    public String login(HttpServletRequest request,String username, String password){
+    public boolean login(HttpSession session, String username, String password){
+        System.out.println(username+"----"+password);
+        //调用userinfoService查询方法并得到userinfo对象
         Userinfo userinfo = userinfoService.queryByUsernameAndPassword(username, password);
+        //判断userinfo是否为空
         if (userinfo!=null){
-            request.getSession().setAttribute("userinfo",userinfo);
-            return "success";
+            //设置session域对象
+            session.setAttribute("userinfo",userinfo);
+            //返回true
+            return true;
         }
-        return "failure";
+        //返回false
+        return false;
     }
 
     @RequestMapping("register")
     @ResponseBody
-    public String register(Userinfo userinfo){
+    public boolean register(Userinfo userinfo){
+        System.out.println(userinfo.toString());
+        //调用userinfoService新增方法并得到userinfo对象
         int insert = userinfoService.insert(userinfo);
-        if (insert>0){
-            return "success";
-        }
-        return "failure";
+        //返回结果
+        return insert>0;
     }
 
 }

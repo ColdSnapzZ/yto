@@ -60,7 +60,7 @@
 .input_phone {
 	float: left;
 	height: 48px;
-	width: 83%;
+	width: 70%;
 	color: white;
 	background: transparent;
 	font-size: 16px;
@@ -116,7 +116,7 @@
 .input_pass {
 	float: left;
 	height: 48px;
-	width: 83%;
+	width: 77%;
 	color: white;
 	background: transparent;
 	font-size: 16px;
@@ -149,7 +149,7 @@
 .input_yzm {
 	float: left;
 	height: 48px;
-	width: 73%;
+	width: 69%;
 	color: white;
 	background: transparent;
 	font-size: 16px;
@@ -204,7 +204,7 @@
 .input_yzm1 {
 	float: left;
 	height: 48px;
-	width: 73%;
+	width: 70%;
 	color: white;
 	background: transparent;
 	font-size: 16px;
@@ -279,8 +279,9 @@
 	float: right;
 }
 
+
 .wenz_one {
-	width: 100%;
+	width: 103%;
 	height: 20px;
 	margin-bottom: 20px;
 }
@@ -303,12 +304,6 @@
 	float: right;
 	text-decoration: none;
 }
-
-
-
-
-
-
 
 
 .input_dxyzm {
@@ -367,4 +362,44 @@
 	color: white;
 	text-decoration: none;
 	font-size: 16px;
+}
+
+input{
+	outline: none;
+}
+/*去除浏览器自动填充背景颜色*/
+input:-webkit-autofill {
+	transition: background-color 5000s ease-in-out 0s;
+	-webkit-text-fill-color: white;/**字体颜色可按需求定义*/
+}
+
+.el-message{
+	color: #e6a23c;
+	display: none;
+	background-color: #fdf6ec;
+	border-color: #faecd8;
+	min-width: 380px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 4px;
+	/*border: 1px solid #ebeef5;*/
+	position: fixed;
+	left: 50%;
+	top: 20px;
+	/*osition: fixed;*/
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+	/*background-color: #edf2fc;*/
+	-webkit-transition: opacity .3s,-webkit-transform .4s;
+	/*transition: opacity .3s,-webkit-transform .4s;
+	transition: opacity .3s,transform .4s;*/
+	transition: opacity .3s,transform .4s,-webkit-transform .4s;
+	overflow: hidden;
+	padding: 15px 15px 15px 20px;
+	/*display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;*/
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
 }

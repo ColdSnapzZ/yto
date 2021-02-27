@@ -1,195 +1,233 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href="../css/login.css" rel="stylesheet" type="text/css" />
-	<meta charset="utf-8">
-	<title>圆通会员</title>
-	<script src="../js/jquery-3.3.1.min.js"></script>
+    <link href="../css/login.css" rel="stylesheet" type="text/css"/>
+    <meta charset="utf-8">
+    <title>圆通会员</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="js/gVerify.js"></script>
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <div id="dagai">
-	<div id="zhongjian">
-		<div id="centers">
-			<div id="centers_one">
-				<img src="../img/loginAndReg/dwonload1.png" class="imgs">
-				<div class="wenzi">
-					<span class="wenzi_one">账号登录</span>
-					<span class="wenzi_two"  style="color: #c4c4c5;">手机号登录</span>
-				</div>
-				<form id="shuju">
-					<div id="fugai">
-						<div class="input_div">
-							<input type="text" id="uname" onfocus="outgb(this)" maxlength="11" placeholder="用户名/手机号" class="input_phone">
-							<span class="error_input">不能为空</span>
-						</div>
+    <div id="zhongjian">
+        <div id="centers">
+            <div id="centers_one">
+                <img src="../img/loginAndReg/dwonload1.png" class="imgs">
+                <div class="wenzi">
+                    <span class="wenzi_one">账号登录</span>
+                    <span class="wenzi_two" style="color: #c4c4c5;">手机号登录</span>
+                </div>
+                <form id="log">
+                    <div id="fugai">
+                        <div class="input_div">
+                            <input type="text" name="username" id="uname" onfocus="outgb(this)" maxlength="11"
+                                   placeholder="用户名/手机号" class="input_phone">
+                            <span class="error_input">请输入正确手机号</span>
+                        </div>
 
-						<div class="pass_div">
-							<input type="password" id="pass" onfocus="outgb(this)" maxlength="25" placeholder="密码" class="input_pass">
-							<span class="pass_input">不能为空</span>
-						</div>
+                        <div class="pass_div">
+                            <input type="password" name="password" id="pass" onfocus="outgb(this)" maxlength="25"
+                                   placeholder="密码" class="input_pass">
+                            <span class="pass_input">密码格式错误</span>
+                        </div>
 
-						<div class="pm_div_imgs">
-							<div class="pm_div">
-								<input type="text" id="pm" onfocus="outgb(this)" placeholder="输入图形验证码" class="input_yzm">
-								<span class="pm_input">不能为空</span>
-							</div>
-							<img src="../img/loginAndReg/download2.png" class="imgs_a">
-						</div>
+                        <div class="pm_div_imgs">
+                            <div class="pm_div">
+                                <input type="text" id="pm" onfocus="outgb(this)" placeholder="输入图形验证码"
+                                       class="input_yzm">
+                                <span class="pm_input">验证码错误</span>
+                            </div>
+                            <!--<img src="../img/loginAndReg/download2.png" class="imgs_a">-->
+                            <p id="picyzm" style="padding-left: 310px"></p>
+                        </div>
 
-						<div id="wjmm">
-							<a href="login.html" class="wjmm_one">忘记密码?</span></a>
-						</div>
-					</div>
-				</form>
-				<form id="shuju1">
-					<div id="xianshi" style="display: none;">
-						<div class="input_div1">
-							<input type="text" id="uname1" onfocus="outgb(this)" maxlength="11" placeholder="手机号" class="input_phone1">
-							<span class="error_input1">不能为空</span>
-						</div>
+                        <div id="wjmm">
+                            <a href="login.html" class="wjmm_one">忘记密码?</span></a>
+                        </div>
+                    </div>
+                </form>
+                <form id="shuju1">
+                    <div id="xianshi" style="display: none;">
+                        <div class="input_div1">
+                            <input type="text" id="uname1" onfocus="outgb(this)" maxlength="11" placeholder="手机号"
+                                   class="input_phone1">
+                            <span class="error_input1">不能为空</span>
+                        </div>
 
-						<div class="pm_div_imgs1">
-							<div class="pm_div1">
-								<input type="text" id="pm1" onfocus="outgb(this)" placeholder="输入图形验证码" class="input_yzm1">
-								<span class="pm_input1">不能为空</span>
-							</div>
-							<img src="../img/loginAndReg/download2.png" class="imgs_a1">
-						</div>
+                        <div class="pm_div_imgs1">
+                            <div class="pm_div1">
+                                <input type="text" id="pm1" onfocus="outgb(this)" placeholder="输入图形验证码"
+                                       class="input_yzm1">
+                                <span class="pm_input1">不能为空</span>
+                            </div>
+                            <img src="../img/loginAndReg/download2.png" class="imgs_a1">
+                        </div>
 
-						<div class="pm_div_imgs2">
-							<div class="pm_div2">
-								<input type="text" id="pm2" onfocus="outgb(this)" placeholder="输入短信验证码" class="input_yzm2">
-								<span class="pm_input2">不能为空</span>
-							</div>
-							<input type="button" class="input_yanzm" src="./图片/下载%20(1).png"/>
-						</div>
-					</div>
-				</form>
-				<div class="wenz_one">
-					<input type="checkbox" class="input_checkbox1_">
-					<span class="wenz_two">登录/注册即表示您已阅读、理解并同意</span>
-					<a href="login.html" class="wenz_three">《圆通速递隐私政策》</a>
-				</div>
-				<input type="button" class="input_button" value="登录" />
-				<div class="denglu">
-					<a href="register.html" class="register">注册</a>
-				</div>
+                        <div class="pm_div_imgs2">
+                            <div class="pm_div2">
+                                <input type="text" id="pm2" onfocus="outgb(this)" placeholder="输入短信验证码"
+                                       class="input_yzm2">
+                                <span class="pm_input2">不能为空</span>
+                            </div>
+                            <input type="button" class="input_yanzm" src="./图片/下载%20(1).png"/>
+                        </div>
+                    </div>
+                </form>
+                <div class="wenz_one">
+                    <input type="checkbox" class="input_checkbox_">
+                    <span class="wenz_two">登录/注册即表示您已阅读、理解并同意</span>
+                    <a href="login.html" class="wenz_three">《圆通速递隐私政策》</a>
+                </div>
+                <input type="button" id="login_btn" class="input_button" value="登录"/>
+                <div class="denglu">
+                    <a href="register.html" class="register">注册</a>
+                </div>
 
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div role="alert" class="el-message el-message--warning" style="z-index: 2006;">
+	<!--<i class="el-message__icon el-icon-warning"></i>-->
+    <p class="el-message__content" style="color: #e6a23c;">验证码不正确</p>
 </div>
 </body>
 <script>
-	$(function() {
-		$("#uname").blur(function() {
-			if ($("#uname").val() == "" || $("#uname").val().length < 11) {
-				$(".input_div").css("border", "1px red solid");
-				$(".error_input").css("display", "block");
+    let buname = false;
+    let bpm = false;
+    let bpass = false;
+    $(function () {
+        $("#uname").blur(function () {
+            if ($("#uname").val() == "" || $("#uname").val().length < 11) {
+                $(".input_div").css("border", "1px red solid");
+                $(".error_input").css("display", "block");
+                buname = false;
+            } else {
+                buname = true;
+                $(".error_input").css("display", "none");
+                $(".input_div").css("border", "1px #67c23a solid");
+            }
+        });
 
-			} else {
-				$(".error_input").css("display", "none");
-				$(".input_div").css("border", "1px #67c23a solid");
-			}
-		});
+        $("#uname1").blur(function () {
+            if ($("#uname1").val() == "" || $("#uname1").val().length < 11) {
+                $(".input_div1").css("border", "1px red solid");
+                $(".error_input1").css("display", "block");
 
-		$("#uname1").blur(function() {
-			if ($("#uname1").val() == "" || $("#uname1").val().length < 11) {
-				$(".input_div1").css("border", "1px red solid");
-				$(".error_input1").css("display", "block");
+            } else {
+                $(".error_input1").css("display", "none");
+                $(".input_div1").css("border", "1px #67c23a solid");
+            }
+        });
 
-			} else {
-				$(".error_input1").css("display", "none");
-				$(".input_div1").css("border", "1px #67c23a solid");
-			}
-		});
+        $("#pass").blur(function () {
+            var uPattern = /^.*(?=.{8,25})(\d+[a-zA-Z]+|[a-zA-Z]+\d+)([0-9a-zA-Z]*)$/;
+            var reg = new RegExp(uPattern);
 
-		$("#pass").blur(function() {
-			var uPattern = /^.*(?=.{8,25})(\d+[a-zA-Z]+|[a-zA-Z]+\d+)([0-9a-zA-Z]*)$/;
-			var reg = new RegExp(uPattern);
+            var result = reg.test($("#pass").val());
+            bpass = result;
+            if (result == true) {
+                $(".pass_input").css("display", "none");
+                $(".pass_div").css("border", "1px #67c23a solid");
 
-			var result = reg.test($("#pass").val());
-			if (result == true) {
-				$(".pass_input").css("display", "none");
-				$(".pass_div").css("border", "1px #67c23a solid");
+            } else {
+                $(".pass_div").css("border", "1px red solid");
+                $(".pass_input").css("display", "block");
+            }
+        });
 
-			} else {
-				$(".pass_div").css("border", "1px red solid");
-				$(".pass_input").css("display", "block");
-			}
-		});
+        //点击按钮验证
+        var code = document.getElementById("pm");
 
-		$("#pm").blur(function() {
-			if ($("#pm").val() == "" || $("#pm").val().length < 11) {
-				$(".pm_div").css("border", "1px red solid");
-				$(".pm_input").css("display", "block");
+        $("#pm").blur(function () {
+            if (!verifyCode.validate(code.value)) {
+                $(".pm_div").css("border", "1px red solid");
+                $(".pm_input").css("display", "block");
+                bpm = false;
+            } else {
+                bpm = true;
+                $(".pm_input").css("display", "none");
+                $(".pm_div").css("border", "1px #67c23a solid");
+            }
+        });
 
-			} else {
-				$(".pm_input").css("display", "none");
-				$(".pm_div").css("border", "1px #67c23a solid");
-			}
-		});
+        $("#pm1").blur(function () {
+            if ($("#pm1").val() == "" || $("#pm1").val().length < 11) {
+                $(".pm_div1").css("border", "1px red solid");
+                $(".pm_input1").css("display", "block");
 
-		$("#pm1").blur(function() {
-			if ($("#pm1").val() == "" || $("#pm1").val().length < 11) {
-				$(".pm_div1").css("border", "1px red solid");
-				$(".pm_input1").css("display", "block");
+            } else {
+                $(".pm_input1").css("display", "none");
+                $(".pm_div1").css("border", "1px #67c23a solid");
+            }
+        });
 
-			} else {
-				$(".pm_input1").css("display", "none");
-				$(".pm_div1").css("border", "1px #67c23a solid");
-			}
-		});
+        $("#pm2").blur(function () {
+            if ($("#pm2").val() == "" || $("#pm2").val().length < 11) {
+                $(".pm_div2").css("border", "1px red solid");
+                $(".pm_input2").css("display", "block");
 
-		$("#pm2").blur(function() {
-			if ($("#pm2").val() == "" || $("#pm2").val().length < 11) {
-				$(".pm_div2").css("border", "1px red solid");
-				$(".pm_input2").css("display", "block");
-
-			} else {
-				$(".pm_input2").css("display", "none");
-				$(".pm_div2").css("border", "1px #67c23a solid");
-			}
-		});
-	});
-
-	$(".wenzi_one").click(function(){
-		$("#fugai").css("display","block");
-		$("#xianshi").css("display","none");
-		$(".wenzi_two").css('color','#c4c4c5');
-		$(".wenzi_one").css('color','white');
-
-		/* //$("#xianshi").fadeOut();
-        //$("#xianshi").fadeIn();
-        if ($("#fugai").fadeIn()) {
-            $("#xianshi").fadeOut();
-        } else{
-
-        } */
-	});
-	$(".wenzi_two").click(function(){
-		//$("#fugai").fadeIn();
-		//$("#fugai").fadeOut();
-		/* if ($("#fugai").fadeIn()) {
-            $("#fugai").fadeOut()
-        } else{
-             $("#xianshi").fadeIn();
-        } */
-		$("#fugai").css("display","none");
-		$("#xianshi").css("display","block");
-		$(".wenzi_two").css('color','white');
-
-		$(".wenzi_one").css('color','#c4c4c5');
-		//$("#xianshi").fadeIn();
-	});
-
-	function outgb(obj) {
-		$(obj).parent().css("border", "1px white solid")
-	}
+            } else {
+                $(".pm_input2").css("display", "none");
+                $(".pm_div2").css("border", "1px #67c23a solid");
+            }
+        });
+    });
 
 
-	$(function () {
+    function outgb(obj) {
+        $(obj).parent().css("border", "1px white solid")
+    }
 
-	});
+
+    $(function () {
+        $("#login_btn").click(function () {
+
+            if (buname && bpm && bpass) {
+                //alert($("#reg").serialize())
+                if ($(".input_checkbox_").is(':checked')) {
+                    $.ajax({
+                       type:'post',
+                       url:'/yto/userinfo/login',
+                       data:$("#log").serialize(),
+                       dataType:'json',
+                       success:function (msg) {
+                           if (msg){
+                               alert('登录成功')
+                           }else {
+                               message_info('登录失败！手机号或密码错误')
+                           }
+                       }
+                    });
+                } else {
+                    //alert("请勾选用户协议！")
+                    message_info("请勾选用户协议！");
+                }
+            } else {
+                //alert("请输入正确信息！")
+                message_info("请输入完整信息！");
+            }
+
+        });
+    });
+    function message_info(msg) {
+        $('.el-message__content').text(msg);
+        clearTimeout();
+        $('.el-message').stop().fadeToggle('slow',function () {
+            setTimeout(function() {
+                $('.el-message').stop().fadeToggle('slow');
+            }, 1000);
+        });
+    }
+</script>
+<script type="text/javascript">
+
+    //初始化验证码
+    var verifyCode = new GVerify({
+        id: "picyzm",
+        type: "blend"
+    });
+
 </script>
 </html>

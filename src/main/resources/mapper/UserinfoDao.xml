@@ -17,7 +17,7 @@
     <!--查询单个-->
     <select id="queryByUsernameAndPassword" resultMap="UserinfoMap">
         select
-          id, uid, username, password, phone, gender, birthday, email, detailed, headImg
+          id, uid, username, phone, gender, birthday, email, detailed, headImg, password
         from yto.userinfo
         where username = #{username} and password = #{password}
     </select>
@@ -26,8 +26,8 @@
 
     <!--新增所有列-->
     <insert id="insert">
-        insert into yto.userinfo(uid, username, phone, gender, birthday, email, detailed, headImg)
-        values (#{uid}, #{username}, #{phone}, #{gender}, #{birthday}, #{email}, #{detailed}, #{headimg})
+        insert into yto.userinfo(uid, username, phone, gender, birthday, email, detailed, headImg,password)
+        values (#{uid}, #{username}, #{phone}, #{gender}, #{birthday}, #{email}, #{detailed}, #{headimg},#{password})
     </insert>
 
 

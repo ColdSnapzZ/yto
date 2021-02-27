@@ -4,8 +4,6 @@ import cn.net.yto.entity.Userinfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
-
 /**
  * (Userinfo)表数据库访问层
  *
@@ -26,7 +24,7 @@ public interface UserinfoDao {
      *
      * @return
      */
-    Userinfo queryByUsernameAndPassword(String username,String password);
+    Userinfo queryByUsernameAndPassword(@Param("username") String username,@Param("password") String password);
 
 
 }

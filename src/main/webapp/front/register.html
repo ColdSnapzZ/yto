@@ -5,6 +5,8 @@
 	<meta charset="utf-8">
 	<title>圆通会员</title>
 	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="js/gVerify.js"></script>
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <div id="dagai">
@@ -16,28 +18,29 @@
 				<form id="reg">
 
 					<div class="input_div">
-						<input type="text" name="phone" id="uname" onfocus="outgb(this)" maxlength="11" placeholder="11位手机号" class="input_phone">
+						<input autocomplete="off" type="text" name="phone" id="uname" onfocus="outgb(this)" maxlength="11" placeholder="11位手机号" class="input_phone">
 						<span class="error_input">手机号格式不正确</span>
 					</div>
 
 					<div class="pm_div_imgs">
 						<div class="pm_div">
-							<input type="text" id="pm" onfocus="outgb(this)" placeholder="输入图形验证码" class="input_yzm">
-							<span class="pm_input">不能为空</span>
+							<input autocomplete="off" type="text" id="pm" onfocus="outgb(this)" placeholder="输入图形验证码" class="input_yzm">
+							<span class="pm_input">验证码错误</span>
 						</div>
-						<img src="../img/loginAndReg/download2.png" class="imgs_a">
+						<!--<img src="../img/loginAndReg/download2.png" class="imgs_a">-->
+						<p id="picyzm" style="padding-left: 310px"></p>
 					</div>
 
-					<input type="text" placeholder="输入短信验证码" class="input_dxyzm">
+					<!--<input type="text" placeholder="输入短信验证码" class="input_dxyzm">-->
 
-					<div class="pass_div">
-						<input type="password" name="password" id="pass" onfocus="outgb(this)" maxlength="25" placeholder="8-25位密码数字、字母组合" class="input_pass">
+					<div class="pass_div" style="margin-top: 25px">
+						<input  autocomplete="off" type="password" name="password" id="pass" onfocus="outgb(this)" maxlength="25" placeholder="8-25位密码数字、字母组合" class="input_pass">
 						<span class="pass_input">密码由8-25位数字、字母组成</span>
 					</div>
 
 					<div class="password_div">
-						<input type="password" id="password" onfocus="outgb(this)" maxlength="25" placeholder="确认密码" class="input_password">
-						<span class="password_input">密码不能为空</span>
+						<input autocomplete="off" type="password" id="password" onfocus="outgb(this)" maxlength="25" placeholder="确认密码" class="input_password">
+						<span class="password_input">两次输入密码不一致</span>
 					</div>
 
 					<div class="wenzi_zero">
@@ -54,26 +57,38 @@
 		</div>
 	</div>
 </div>
+
+<div role="alert" class="el-message el-message--warning" style="z-index: 2006;">
+	<!--<i class="el-message__icon el-icon-warning"></i>-->
+	<p class="el-message__content" style="color: #e6a23c;">验证码不正确</p>
+</div>
 </body>
 <script>
+	let buname=false;
+	let bpm=false;
+	let bpass=false;
+	var code = document.getElementById("pm");
+	//let buname=false;
 	$(function() {
 		$("#uname").blur(function() {
 			if ($("#uname").val() == "" || $("#uname").val().length < 11) {
 				$(".input_div").css("border", "1px red solid");
 				$(".error_input").css("display", "block");
-
+				buname=false;
 			} else {
+				buname=true;
 				$(".error_input").css("display", "none");
 				$(".input_div").css("border", "1px #67c23a solid");
 			}
 		});
 
 		$("#pm").blur(function() {
-			if ($("#pm").val() == "" || $("#pm").val().length < 11) {
+			if (!verifyCode.validate(code.value)) {
 				$(".pm_div").css("border", "1px red solid");
 				$(".pm_input").css("display", "block");
-
+				bpm=false;
 			} else {
+				bpm=true;
 				$(".pm_input").css("display", "none");
 				$(".pm_div").css("border", "1px #67c23a solid");
 			}
@@ -84,6 +99,7 @@
 			var reg = new RegExp(uPattern);
 
 			var result = reg.test($("#pass").val());
+			bpass=result;
 			if (result == true) {
 				$(".pass_input").css("display", "none");
 				$(".pass_div").css("border", "1px #67c23a solid");
@@ -98,10 +114,11 @@
 			if ($("#pass").val() == $("#password").val() && $("#password").val().length > 0) {
 				$(".password_input").css("display", "none");
 				$(".password_div").css("border", "1px #67c23a solid");
-
+				bpass=true;
 			} else {
 				$(".password_div").css("border", "1px red solid");
 				$(".password_input").css("display", "block");
+				bpass=false;
 			}
 
 		});
@@ -115,8 +132,62 @@
 
 	$(function () {
 		$("#register_btn").click(function () {
-			console.log($("#reg").serialize())
+			if (buname && bpm && bpass) {
+				//alert($("#reg").serialize())
+					if ($(".input_checkbox_").is(':checked')) {
+						$.ajax({
+							type: 'post',
+							url: '/yto/userinfo/register',
+							data: $("#reg").serialize(),
+							dataType: 'json',
+							success: function (msg) {
+								if (msg){
+									message_info('注册成功！');
+									setTimeout(function () {
+										location.href='login.html';
+									},1000);
+								}else {
+									message_info('注册失败！手机号已存在')
+								}
+							}
+						});
+					} else {
+						message_info("请勾选用户协议！")
+					}
+				} else {
+					message_info("请输入完整信息！")
+				}
+
+
 		});
 	});
+
+	function message_info(msg) {
+		$('.el-message__content').text(msg);
+		clearTimeout();
+		$('.el-message').stop().fadeToggle('slow',function () {
+			setTimeout(function() {
+				$('.el-message').stop().fadeToggle('slow');
+			}, 1000);
+		});
+	}
+</script>
+<script type="text/javascript">
+	//初始化验证码
+	var verifyCode = new GVerify({
+		id : "picyzm",
+		type : "blend"
+	});
+	/*//点击按钮验证
+	var code = document.getElementById("pm");
+	var btn = document.getElementById("btn");
+	btn.onclick = function() {
+		var res = verifyCode.validate(code.value);
+		if (res) {
+			alert("验证通过");
+		} else {
+			alert("验证码错误");
+		}
+	}*/
 </script>
 </html>

@@ -3,10 +3,10 @@ package cn.net.yto.service.impl;
 import cn.net.yto.dao.UserinfoDao;
 import cn.net.yto.entity.Userinfo;
 import cn.net.yto.service.UserinfoService;
+import cn.net.yto.util.IdUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * (Userinfo)表服务实现类
@@ -21,6 +21,8 @@ public class UserinfoServiceImpl implements UserinfoService {
 
     @Override
     public int insert(Userinfo userinfo) {
+        userinfo.setUsername(userinfo.getPhone());
+        userinfo.setUid(IdUtil.createId(null, 12));
         return userinfoDao.insert(userinfo);
     }
 
