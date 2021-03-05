@@ -28,7 +28,6 @@ public class UserinfoController {
     @RequestMapping("login")
     @ResponseBody
     public boolean login(HttpSession session, String username, String password){
-        System.out.println(username+"----"+password);
         //调用userinfoService查询方法并得到userinfo对象
         Userinfo userinfo = userinfoService.queryByUsernameAndPassword(username, password);
         //判断userinfo是否为空
@@ -45,7 +44,6 @@ public class UserinfoController {
     @RequestMapping("register")
     @ResponseBody
     public boolean register(Userinfo userinfo){
-        System.out.println(userinfo.toString());
         //调用userinfoService新增方法并得到userinfo对象
         int insert = userinfoService.insert(userinfo);
         //返回结果
