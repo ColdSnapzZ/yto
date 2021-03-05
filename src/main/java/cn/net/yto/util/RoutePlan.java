@@ -62,18 +62,18 @@ public class RoutePlan {
         //追加from
         route.append(from);
         //追加->
-        route.append("->");
+        route.append("-");
 
         //判断是否不是同一省
         if (!formsheng.equals(tosheng)) {
             //追加fromsheng
             route.append(formsheng);
             //追加分拨中心->
-            route.append("分拨中心->");
+            route.append("分拣中心-");
             //追加tosheng
             route.append(tosheng);
             //追加分拨中心->
-            route.append("分拨中心->");
+            route.append("分拣中心-");
         }
         //追加to
         route.append(to);
