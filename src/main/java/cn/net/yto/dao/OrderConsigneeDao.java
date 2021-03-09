@@ -62,8 +62,7 @@ public interface OrderConsigneeDao {
      * @param ocid 主键
      * @return 影响行数
      */
+    //根据ocid删除
     int deleteById(Integer ocid);
-
-    OrderConsignee queryByOnumber(String onumber);
 
 }

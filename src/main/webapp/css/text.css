@@ -1,0 +1,557 @@
+*{
+	margin: 0px ;
+	padding: 0px;
+}
+ ul{
+	 list-style: none;
+	 margin: 0px;
+ }
+ .header{
+		width: 1876px;
+		height:50px;
+		border:1px #d2d2d2 solid;
+		
+}
+.headercenter{
+		width: 1200px;
+		height:100%;
+		
+		margin: 0px auto;
+}
+.p1{
+	margin-left: 20px;
+	float: left;
+	font-size: 20px;
+	line-height:50px;
+	font-family: 微软雅黑;
+}
+.ul1{
+	float: right;
+}
+.ul1 li{
+	font-size: 12px;
+	font-family: 微软雅黑;
+	margin-left: 10px;
+	line-height: 50px;
+	float: left;
+}
+.body{	
+	width: 1876px;
+	min-height:350px;
+	
+	margin-top: 40px;	
+}
+.bodycenter{
+	width: 1200px;
+	min-height: 1400px;
+	border: 1px #f7f7f7 solid;
+	margin: 0px auto;
+	background: white;
+}
+.address{
+	width: 1120px;
+	min-height: 230px;
+
+	margin: 0px auto;
+	
+}
+.addresstitle{
+		margin-left: 40px;
+		color: #373737;
+		font-family: 微软雅黑;
+	    font-size: 18px;			
+		margin-top: 60px;
+}
+.addressname{
+	width: 260px;
+	height: 180px;
+	border: 1px #e2e2e2 solid;
+	float: left;
+	margin-top: 20px;
+	margin-left: 15px;
+	
+}
+.addressname:hover{
+	border: 1px red solid;
+}
+.addressname p{
+	font-family: 微软雅黑;
+}
+.username{
+	margin-left: 25px;
+	margin-top: 25px;
+	font-size: 18px;
+}
+.addressnumber{
+	margin-left: 25px;
+	margin-top: 25px;
+	color: #8a758a;
+}
+.addressname1{
+	margin-left: 25px;
+	color: #8a758a;
+}
+.UpdateDel{	
+	color: red;	
+	text-align: right;
+	margin-top: 15px;
+	display: none;
+}
+.Addaddress{
+	width: 260px;
+	height: 180px;
+	border: 1px #e2e2e2 solid;
+	float: left;
+	margin-top: 20px;
+	margin-left: 15px;
+	text-align: center;
+}
+.infomenoy{
+	width:1200px;
+	height: 120px;
+	
+	font-family: 微软雅黑;
+}
+.menoyname{
+	margin-left:40px;
+	color: #373737;
+	font-family: 微软雅黑;
+	font-size: 20px;	
+	
+}
+.menoyname1{
+	width: 90px;
+	height:25px;
+	border: 1px red solid;
+	text-align: center; 
+	color: red;
+	font-size: 14px;
+	margin-left: 18px;
+	
+	margin-top: 20px;
+	margin-left: 55px;
+}
+.goodsList{
+	width: 1120px;
+	min-height:270px;
+	
+	margin: 0px auto;
+}
+.goodsList1{
+	width: 1120px;
+	height:45px;
+	
+}
+.labelTitle{
+	float: left;
+	color: #373737;
+	font-family: 微软雅黑;
+	font-size: 20px;
+}
+.updateShping{
+	float: right;
+	font-size: 14px;
+	margin-top:3px;
+	color: #c3b3b3;
+}
+.updateShping :hover{
+	color: red;
+}
+.cplist{
+	width: 1120px;
+	min-height: 220px;
+	border: 1px #E9E9E9 solid;
+	background: #f7f7f7;
+}
+.clearfix{
+	width: 350px;
+	height: 80px;
+	
+	margin-left: 15px;
+	float: left;
+}
+.clearfixname{
+	font-family: 微软雅黑;
+	font-weight:20;
+}
+.clearfixname1{
+	font-family: 微软雅黑;
+	width: 90px;
+	height:25px;
+	border: 1px red solid;
+	text-align: center; 
+	color: red;
+	font-size: 14px;
+	margin-top: 15px;
+	margin-left:5px;
+}
+.cplistright{
+	width: 750px;
+	height: 220px;
+	border: 1px #E9E9E9 solid;
+	float: left;
+	background: white;
+}
+.cpimg{
+	height: 185px;
+	float: left;
+	margin-left:50px;
+	margin-top: 30px;
+	
+}
+.cpinformation{
+	float: left;
+	width: 300px;
+	height: 220px;
+	margin-left: 20px;
+	
+	
+}
+.cpinformation ul{
+	margin-top: 30px;
+}
+.cpinformation ul li{
+	margin-top: 12px;
+}
+.cpname{
+	font-family: 微软雅黑;
+}
+.configuration{
+	font-family: 微软雅黑;
+	color:#757575;
+	font-size: 12px;
+}
+.cpreturn{
+	font-family: 微软雅黑;
+	color:#69beec;
+}
+.cpmenoy{
+	text-align: center;
+	width: 140px;
+	height: 220px;
+	
+	float: left;
+}
+.cpmenoy p{
+	font-family: 微软雅黑;
+	color: red;
+	margin-top: 30px;
+}
+.cpnum{
+	text-align: center;
+	width: 110px;
+	height: 220px;
+	
+	float: left;
+}
+.cpnum p{
+	font-family: 微软雅黑;
+	color: #7f7f7f;
+	margin-top: 30px;
+	font-size: 18px;
+}
+.invoice{
+	margin-left:40px;
+	margin-top: 40px;
+	width: 1100x;
+	height: 100px;
+	
+}
+.invoice p{
+	color: #373737;
+	font-family: 微软雅黑;
+	font-size: 20px;
+}
+.invoice ul{
+	margin-top: 15px;
+}
+.invoice ul li{
+	float: left;
+	font-size: 14px;
+	color: #BFBFBF;
+}
+.OrderMemo{
+	width: 1160px;
+	height: 200px;
+	
+	margin-left:40px;
+}
+.OrderMemoname{
+	color: #373737;
+	font-family: 微软雅黑;
+	font-size: 20px;
+}
+.settlementInfo{
+	width:1200px ;
+	height:280px;
+	
+}
+.settlementInforight{
+	float: left;
+	width: 450px;
+	height: 280px;	
+	font-family: 微软雅黑;
+	
+}
+.settlementInforight a{
+	text-decoration: none;
+	color: black;
+}
+.settlementInforight a:hover{
+	color: red;
+}
+.submitInfo {
+	width: 1150px;
+	height: 80px;
+	
+	margin: 0px auto;
+}
+.submitInfoleft{
+	width: 300px;
+	height: 80px;
+	
+	float: left;
+	color: #757575;
+}
+.submitInforight{
+	width: 140px;
+	height: 40px;
+	border: 1px red solid;
+	float: right;
+	background: #e2231a;
+	margin-top: 20px;
+}
+.footlist{
+	width: 1876px;
+	height: 180px;
+	
+	background: white;
+	margin-top:50px;
+}
+.footlistimg{
+	width: 1200px;
+	height: 180px;
+	
+	margin: 0px auto;
+}
+.foot{
+	width: 1876px;
+	height: 260px;	
+	background: white;
+}
+.footbody{
+	width:1200px;
+	height: 260px;
+	
+	margin:0px auto;
+}
+.footbodyleft{
+	width: 950px;
+	height:  260px;
+	
+	float: left;
+}
+.footbodyleft ul{
+	float: left;
+	font-family: 微软雅黑;
+	margin-left:50px ;
+}
+.footbodyleft ul li{
+	margin-top:10px;
+	font-size: 14px;
+}
+.li1{
+	color: black;
+	font-weight: 700;
+}
+.li2{
+	color: #BFBFBF;
+}
+
+.footbodyright{
+	font-family: 微软雅黑;
+	width: 240px;
+	height: 100px;
+	
+	float: left;
+	text-align: center;
+	margin-top: 30px;
+}
+/* 点击添加地址页面 */
+#clickAdd{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	display: none;
+}
+#clickAdd .adrForm{
+	position: absolute;
+	top: 25%;
+	left: 35%;
+	width: 660px;
+	height: 430px;
+	background-color: #f5f5f5;
+}
+.adrForm .header{
+	position: relative;
+	padding: 14px 20px;
+	line-height: 32px;
+	background-color: #f5f5f5;
+	width: 618px;
+	height: 32px;
+}
+.adrForm .header .title{
+	font-size: 18px;
+	font-weight: 400;
+	color: #424242;
+	vertical-align: middle;
+}
+.adrForm .header i{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	color: #757575;
+	cursor: pointer;
+	font-size: 13px;
+	display: block;
+	position: absolute;
+	right: 14px;
+	top: 14px;
+	text-align: center;
+}
+.adrForm .header i:hover{
+	background-color: #e85900;
+	color: white;
+}
+.adrForm .body{
+	width: 620px;
+	height: 248.5px;
+	padding: 20px;
+	background-color: white;
+	position: relative;
+}
+.adrForm .body input,textarea::-moz-placeholder{
+	color: #7c7c7c;
+	font-size: 14px;
+}
+.adrForm .body input:hover{
+	border: 1px solid #B0B0B0;
+}
+.adrForm .body .input-name{
+	width: 269px;
+	height: 18px;
+	border: 1px solid #e0e0e0;
+	padding: 10px 16px;
+	margin-right: 10px;
+	margin-bottom: 15px;
+}
+.adrForm .body .input-phone{
+	width: 269px;
+	height: 18px;
+	border: 1px solid #e0e0e0;
+	padding: 10px 16px;
+}
+.adrForm .body .input-address{
+	width: 500px;
+	height: 18px;
+	padding: 10px 16px;
+	border: 1px solid #e0e0e0;
+	margin-bottom: 15px;
+	margin-top: 20px;
+}
+.adrForm .body .adr{
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	right: 23px;
+	top: 140px;
+	color: #b0b0b0;
+	font-size: 19px;
+	cursor: default;
+}
+.adrForm .body .address-select-box{
+	position: absolute;
+	top: 75px;
+	width: 618px;
+	height: 192px;
+	border: 1px solid #ff6700;
+	background-color: white;
+	display: none;
+}
+.adrForm .body .address-select-box .clo{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 10px;
+	color: #b0b0b0;
+	cursor: pointer;
+	width: 24px;
+	height: 24px;
+	text-align: center;
+	line-height: 24px;
+}
+.adrForm .body .address-select-box .select-div{
+	margin-top: 60px;
+	margin-left: 140px;
+}
+.adrForm .body .address-select-box select{
+	width: 80px;
+	height: 20px;
+	border: 1px solid #e0e0e0;
+	margin: 0 auto;
+}
+.adrForm .body textarea{
+	width: 586px;
+	height: 48px;
+	border: 1px solid #e0e0e0;
+	padding: 10px 16px;
+	margin-bottom: 15px;
+}
+.adrForm .body .input-addresstag{
+	width: 586px;
+	height: 18px;
+	padding: 10px 16px;
+	border: 1px solid #e0e0e0;
+	margin-bottom: 15px;
+}
+.adrForm .footer{
+	width: 660px;
+	height: 40px;
+	border-top: 1px solid #e0e0e0;
+	padding: 20px 0;
+	background-color: #f5f5f5;
+	position: relative;
+}
+.adrForm .footer .btn{
+	display: block;
+	width: 160px;
+	height: 40px;
+	background: #ff6700;
+	color: white;
+	text-align: center;
+	line-height: 40px;
+	position: absolute;
+	left: 162px;
+}
+.adrForm .footer .btn:hover{
+	background-color: #f25807;
+	cursor: pointer;
+}
+.adrForm .footer .cancel{
+	display: block;
+	width: 160px;
+	height: 40px;
+	background: #b0b0b0;
+	color: white;
+	text-align: center;
+	line-height: 40px;
+	position: absolute;
+	left: 338px;
+}
+.adrForm .footer .cancel:hover{
+	background-color: #757575;
+	cursor: pointer;
+}

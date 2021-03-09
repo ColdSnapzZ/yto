@@ -27,12 +27,11 @@ public class OrderConsigneeController {
      * @param id 主键
      * @return 单条数据
      */
+    //根据id查询
     @GetMapping("selectOne")
     public OrderConsignee selectOne(Integer id) {
         return this.orderConsigneeService.queryById(id);
     }
 
-
-
-
+    
 }

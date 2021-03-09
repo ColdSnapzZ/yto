@@ -40,7 +40,16 @@
 
     <select id="selectonumber" resultMap="MyorderMap">
        SELECT oid, uid, onumber, wnumber, itemtype, remark, weight, otime, ystatus, money
-       FROM yto.myorder WHERE ystatus=#{ystatus} and onumber=#{onumber}
+       FROM yto.myorder
+       <where>
+           <if test="onumber != null  and onumber != ''">
+               and onumber=#{onumber}
+           </if>
+           <if test="ystatus != null">
+               and  ystatus=#{ystatus}
+           </if>
+        </where>
+
     </select>
     <select id="count" resultType="int">
         select
@@ -60,7 +69,7 @@
         select
           oid, uid, onumber, wnumber, itemtype, remark, weight, otime, ystatus, money
         from yto.myorder
-        limit #{offset}, #{limit}
+        limit #{offset}, #{limit}1o
     </select>
 
     <!--通过实体作为筛选条件查询-->

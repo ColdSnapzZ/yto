@@ -86,7 +86,7 @@
 									</ul>
 									<div class="sanjiao ab-one"></div>
 								</div>
-								<input class="el-input__inner" type="text" placeholder="请输入内容"/>
+								<input class="el-input__inner" type="text" placeholder="请输入内容" name="onumber"/>
 								<div class="el_form_item">
 									<label class="el_lable" >下单时间</label>
 									<div class="el-date-editor">
@@ -105,6 +105,7 @@
 										<div class="el_input_small">
 										<input class="el_input__innern" readonly="readonly" type="text" placeholder="全部订单"/>
 										<i class="iconfont">&#xe731;</i>
+											<span id="spani">
 											<ul class="el_scrollbar">
 												<li>全部订单</li>
 												<li>待取件</li>
@@ -112,16 +113,18 @@
 												<li>已签收</li>
 												<li>其他</li>
 											</ul>
+												</span>
 												<div class="sanjiao ab-two"></div>
 										</div>
 									</div>
 									<div class="btnll">
-										<span >查询</span>
+										<span  id="chaxun">查询</span>
 									</div>
 								</div>
 							</div>
 						</div>
-						
+
+
 					</div>
 					<div class="header_wrapper">
 						<table class="table__header" style="width: 1563px" cellspacing="0" cellpadding="0" border="0" style="width: 1563px; height: 40px;">
@@ -140,11 +143,11 @@
 					</div>
 					<div class="empty_block" contenteditable="true">
 
-						<table style="height: 52px;">
+						<table style="height: 52px;" id="tabs">
 							<c:forEach items="${uid}" var="s">
 						<tr class="el-table__row" style="font-size: 14px;">
 
-							<td class="el_column_8" rowspan="1" colspan="1" style="width: 50px; height:48px; color: color: rgb(0, 0, 0);;">${s.oid}</td>
+							<td class="el_column_8" rowspan="1" colspan="1" style="width: 50px; height:48px; color: rgb(0, 0, 0);;" id="oids">${s.oid}</td>
 							<td class="el_column_9" rowspan="1" colspan="1" style="width: 210px; height:48px; cursor: pointer; color: #47086c; color:  #47086c;">
 									${s.onumber}
 							</td>
@@ -157,7 +160,7 @@
 							<td class="el_column_12" rowspan="1" colspan="1"  style="width: 270px; height:48px; color: #333;">
 									${s.otime}
 							</td>
-							<td class="el_column_13" rowspan="1" colspan="1"  style="width: 265px; height:48px; cursor: pointer;color: #47086c; font-size: 14px;" onclick="x(${s.oid})">
+							<td class="el_column_13" rowspan="1" colspan="1"  style="width: 265px; height:48px; cursor: pointer;color: #47086c; font-size: 14px;" name="${s.oid}" >
 									查看详情							
 							</td>
 							<!--<td class="el_column_14" rowspan="1" colspan="1"  style="width: 378px; height=48px">
@@ -171,34 +174,6 @@
 						</tr>
 							</c:forEach>
 						</table>
-						<script>
-
-								function x(oid) {
-
-									$.get("../myorder/selectByOid","oid="+oid,function (json) {
-                                        $("#ydh").text(json.wnumber);
-                                        $("#ddh").text(json.onumber);
-										$("#jjr").text(json.orderSender.sname);
-										$("#jjrdh").text(json.orderSender.sphone);
-										$("#jjrdz").text(json.orderSender.sdistrict+json.orderSender.sdetailed);
-
-										$("#sjr").text(json.orderConsignee.cname);
-										$("#sjrdh").text(json.orderConsignee.cphone);
-										$("#sjrdz").text(json.orderConsignee.cdistrict+json.orderConsignee.cdetailed);
-										$("#wpmc").text(json.itemType);
-										$("#wpzl").text(json.weight);
-
-
-										$("#tsbz").text(json.remark);
-										$("#xdsj").text(json.otime);
-										$("#smjz").text(json.money);
-
-
-
-									},"json");
-								}
-
-						</script>
 
 
 
@@ -310,6 +285,19 @@
 				<div class="yto-x-hidden" style="margin-bottom: -17px; margin-right: -17px;">
 					<div class="scrollbar__view">
 						<ul>
+							<li>
+								<p>客户签收人: 已签收，签收人凭取货码签收。 已签收  感谢使用圆通速递，期待再次为您服务 如有疑问请联系：18374956356，投诉电话：0731-82563323</p>
+								<p>2020-12-20 19:49:32</p>
+							</li>
+							<li>
+								<p>客户签收人: 已签收，签收人凭取货码签收。 已签收  感谢使用圆通速递，期待再次为您服务 如有疑问请联系：18374956356，投诉电话：0731-82563323</p>
+								<p>2020-12-20 19:49:32</p>
+							</li>
+
+							<li>
+								<p>客户签收人: 已签收，签收人凭取货码签收。 已签收  感谢使用圆通速递，期待再次为您服务 如有疑问请联系：18374956356，投诉电话：0731-82563323</p>
+								<p>2020-12-20 19:49:32</p>
+							</li>
 							<li>
 								<p>客户签收人: 已签收，签收人凭取货码签收。 已签收  感谢使用圆通速递，期待再次为您服务 如有疑问请联系：18374956356，投诉电话：0731-82563323</p>
 								<p>2020-12-20 19:49:32</p>
@@ -504,6 +492,7 @@
 								<p>客户签收人: 已签收，签收人凭取货码签收。 已签收  感谢使用圆通速递，期待再次为您服务 如有疑问请联系：18374956356，投诉电话：0731-82563323</p>
 								<p>2020-12-20 19:49:32</p>
 							</li>
+
 						</ul>
 					</div>
 				</div>
@@ -549,120 +538,237 @@
 		</div>
 	</body>
 	<script>
-		$(".el_column_9").click(function(){
-			var btn = $(".custom_dialog").attr("btn");
-			if (btn=="none") {
-				$(".custom_dialog").stop().animate({right:"0px"},500);
-				$(".custom_dialog").attr("btn","block");
-			}else{
-				$(".custom_dialog").stop().animate({right:"-730px"},500);
-				$(".custom_dialog").attr("btn","none");
-			}
-		});
-	
-			$(".el_column_13").click(function(){
-			var btn = $(".custom_dialog").attr("btn");
-			if (btn=="none") {
-				$(".custom_dialog").stop().animate({right:"0px"},500);
-				$(".custom_dialog").attr("btn","block");
-			}else{
-				$(".custom_dialog").stop().animate({right:"-730px"},500);
-				$(".custom_dialog").attr("btn","none");
-			}
-			
-		});
-				
-		$(".iconfont").click(function(){
-			$(".custom_dialog").stop().animate({right:"-730px"},500);
-			$(".custom_dialog").attr("btn","none");
-		});
-		
-		$(".empty_block").focusout(function(){
-			$(".custom_dialog").stop().animate({right:"-730px"},500);
-			$(".custom_dialog").attr("btn","none");
-		})
-		
-			$(".el-table__body_wrapper").focusout(function(){
-			$(".custom_dialog").stop().animate({right:"-730px"},500);
-			$(".custom_dialog").attr("btn","none");
-		})
-		
-		
-		//显示开始
-		$("#head_top .content .el_b>dl>dt").hover(
-			function() { //进
-				$(this).find("div").stop(true).slideDown("fast");
-			},
-			function() { //出
-				$(this).find("div").stop(true).slideUp("fast");
+
+
+
+
+		var state="1";
+
+
+
+
+
+
+        $(function () {
+			$(".el_column_9").click(function(){
+				var btn = $(".custom_dialog").attr("btn");
+				if (btn=="none") {
+					$(".custom_dialog").stop().animate({right:"0px"},500);
+					$(".custom_dialog").attr("btn","block");
+				}else{
+					$(".custom_dialog").stop().animate({right:"-730px"},500);
+					$(".custom_dialog").attr("btn","none");
+				}
 			});
-		//点击滑动切换页面
-		$(".myorder-container .nav_scroll dl dt:eq(1)").click(function(){
-			$(".myorder-container .nav_scroll i").animate({left:"78px"},200);
-			$(this).css("color","#47086c");
-			$(".nav_scroll dl dt:eq(0)").css("color"," #303133");
-			$(".myorder-container .el_input_group").hide();
-			$(".el_input_group_b").show();
-		});
-		$(".myorder-container .nav_scroll dl dt:eq(0)").click(function(){
-			$(".myorder-container .nav_scroll i").animate({left:"0px"},200);
-			$(this).css("color","#47086c");
-			$(".nav_scroll dl dt:eq(1)").css("color","#303133");
-			$(".myorder-container .el_input_group").show();
-			$(".el_input_group_b").hide();
-		});
-		
-		$(".el_form_item .el-date-editor .el_input__inner").hover(function(){
-			$(".el_form_item .el-date-editor").css("border-color","#c0c4cc");
-		},function(){
-			$(".el_form_item .el-date-editor").css("border-color","#dcdfe6");
-		});
-		
-	
-		/*点击滑出选项*/
-		$(".el_input_group .group_top .el_input_groupr .el_select").click(function(){
-			$(this).find("ul").stop(true).slideToggle("fast");
-		});
-		/*点击切换查询*/
-		$(".el_input_group .group_top .el_input_groupr .el_select .el_list li").click(function(){
-			$(".el_input_group .group_top .el_input_groupr .el_select input").val($(this).text());
-			$(this).css("color","#47086c");
-			$(this).siblings("li").css("color","#606266");
-			$(this).css("background-color","#f5f7fa");
-			$(this).siblings("li").css("background-color","white");
-		});
-		
-		
-		
-		$(".el_input_group .group_top .el_input_groupr .el_select").focusout(function(){
-			$(".el_input_group .group_top .el_input_groupr .el_select ul").slideUp("fast");
-		});
-		
-		
-		$(".el_input_small").click(function(){
-			$(this).css("border-color","#606266");
-		});
-		
-		$(".el_input_small").focusout(function(){
-			$(this).css("border-color","#dcdfe6");
-		});
-		
-		/*点击边框变色*/
-		$(".el_input_group .group_top .el_input_groupr .el-input__inner").click(function(){
-			$(this).css("border-color","#606266");
-		});
-		/*点击边框颜色消失*/
-		$(".el_input_group .group_top .el_input_groupr .el-input__inner").focusout(function(){
-			$(this).css("border-color","#dcdfe6");
-		});
-		
-		$(".el_input_group .group_top .el_input_groupr .el_input_small").click(function(){
-			$('.el_input_small').find("ul").stop(true).slideToggle("fast");
-		});
-		
-		$(".el_input_group .group_top .el_input_groupr .el_input_small .el_scrollbar li").click(function(){
-			$(".el_input_group .group_top .el_input_groupr .el_input_small .el_input__innern").val($(this).text())
-		});
+
+			$(".el_column_13").click(function(){
+				$.get("../myorder/selectByOid","oid="+$(this).attr("name"),function (json) {
+					$("#ydh").text(json.wnumber);
+					$("#ddh").text(json.onumber);
+					$("#jjr").text(json.orderSender.sname);
+					$("#jjrdh").text(json.orderSender.sphone);
+					$("#jjrdz").text(json.orderSender.sdistrict+json.orderSender.sdetailed);
+
+					$("#sjr").text(json.orderConsignee.cname);
+					$("#sjrdh").text(json.orderConsignee.cphone);
+					$("#sjrdz").text(json.orderConsignee.cdistrict+json.orderConsignee.cdetailed);
+					$("#wpmc").text(json.itemType);
+					$("#wpzl").text(json.weight);
+
+
+					$("#tsbz").text(json.remark);
+					$("#xdsj").text(json.otime);
+					$("#smjz").text(json.money);
+
+
+
+				},"json");
+				alert(1);
+				var btn = $(".custom_dialog").attr("btn");
+				if (btn=="none") {
+					$(".custom_dialog").stop().animate({right:"0px"},500);
+					$(".custom_dialog").attr("btn","block");
+				}else{
+					$(".custom_dialog").stop().animate({right:"-730px"},500);
+					$(".custom_dialog").attr("btn","none");
+				}
+
+			});
+
+			$(".iconfont").click(function(){
+				$(".custom_dialog").stop().animate({right:"-730px"},500);
+				$(".custom_dialog").attr("btn","none");
+			});
+
+			$(".empty_block").focusout(function(){
+				$(".custom_dialog").stop().animate({right:"-730px"},500);
+				$(".custom_dialog").attr("btn","none");
+			})
+
+			$(".el-table__body_wrapper").focusout(function(){
+				$(".custom_dialog").stop().animate({right:"-730px"},500);
+				$(".custom_dialog").attr("btn","none");
+			})
+
+
+			//显示开始
+			$("#head_top .content .el_b>dl>dt").hover(
+					function() { //进
+						$(this).find("div").stop(true).slideDown("fast");
+					},
+					function() { //出
+						$(this).find("div").stop(true).slideUp("fast");
+					});
+			//点击滑动切换页面
+			$(".myorder-container .nav_scroll dl dt:eq(1)").click(function(){
+				$(".myorder-container .nav_scroll i").animate({left:"78px"},200);
+				$(this).css("color","#47086c");
+				$(".nav_scroll dl dt:eq(0)").css("color"," #303133");
+				$(".myorder-container .el_input_group").hide();
+				$(".el_input_group_b").show();
+			});
+			$(".myorder-container .nav_scroll dl dt:eq(0)").click(function(){
+				$(".myorder-container .nav_scroll i").animate({left:"0px"},200);
+				$(this).css("color","#47086c");
+				$(".nav_scroll dl dt:eq(1)").css("color","#303133");
+				$(".myorder-container .el_input_group").show();
+				$(".el_input_group_b").hide();
+			});
+
+			$(".el_form_item .el-date-editor .el_input__inner").hover(function(){
+				$(".el_form_item .el-date-editor").css("border-color","#c0c4cc");
+			},function(){
+				$(".el_form_item .el-date-editor").css("border-color","#dcdfe6");
+			});
+
+
+			/*点击滑出选项*/
+			$(".el_input_group .group_top .el_input_groupr .el_select").click(function(){
+				$(this).find("ul").stop(true).slideToggle("fast");
+			});
+			/*点击切换查询*/
+			$(".el_input_group .group_top .el_input_groupr .el_select .el_list li").click(function(){
+				$(".el_input_group .group_top .el_input_groupr .el_select input").val($(this).text());
+				$(this).css("color","#47086c");
+				$(this).siblings("li").css("color","#606266");
+				$(this).css("background-color","#f5f7fa");
+				$(this).siblings("li").css("background-color","white");
+			});
+
+
+
+			$(".el_input_group .group_top .el_input_groupr .el_select").focusout(function(){
+				$(".el_input_group .group_top .el_input_groupr .el_select ul").slideUp("fast");
+			});
+
+
+			$(".el_input_small").click(function(){
+				$(this).css("border-color","#606266");
+			});
+
+			$(".el_input_small").focusout(function(){
+				$(this).css("border-color","#dcdfe6");
+			});
+
+			/*点击边框变色*/
+			$(".el_input_group .group_top .el_input_groupr .el-input__inner").click(function(){
+				$(this).css("border-color","#606266");
+			});
+			/*点击边框颜色消失*/
+			$(".el_input_group .group_top .el_input_groupr .el-input__inner").focusout(function(){
+				$(this).css("border-color","#dcdfe6");
+			});
+
+			$(".el_input_group .group_top .el_input_groupr .el_input_small").click(function(){
+				$('.el_input_small').find("ul").stop(true).slideToggle("fast");
+			});
+
+			$(".el_input_group .group_top .el_input_groupr .el_input_small .el_scrollbar li").click(function(){
+				$(".el_input_group .group_top .el_input_groupr .el_input_small .el_input__innern").val($(this).text())
+			});
+
+			$(".el_scrollbar li").on("click",function () {
+				alert($(this).html())
+				if($(this).html()=="全部订单"){
+					state=null;
+				}else if($(this).html()=="待取件"){
+					state="2";
+				}else if($(this).html()=="运送中"){
+					state="3";
+				}else if($(this).html()=="已签收"){
+					state="4";
+				}else {
+					state="5";
+				}
+
+			});
+			$("#chaxun").click(function () {
+				alert(state);
+				var n=$("input[name=onumber]").val();
+				$.post("../myorder/selectonumber","ystatus="+state+"&onumber="+n,function (json) {
+
+					$("#tabs").text("");
+					if(json==null || json==""){
+						$("#tabs").text("无数据");
+					}
+					$.each(json,function (index,item) {
+						$("#tabs").append('<tr class="el-table__row" style="font-size: 14px;">\n' +
+								'\n' +
+								'<td class="el_column_8" rowspan="1" colspan="1" style="width: 50px; height:48px; color: color: rgb(0, 0, 0);;" id="oids">'+item.oid+'</td>\n' +
+								'<td class="el_column_9" rowspan="1" colspan="1" style="width: 210px; height:48px; cursor: pointer; color: #47086c; color:  #47086c;" >\n' +
+								' '+item.onumber+'\n' +
+								'</td>\n' +
+								'<td class="el_column_10" rowspan="1" colspan="1"  style="width: 160px; height:48px; color: #333;">\n' +
+								''+item.wnumber+'\n' +
+								'</td>\n' +
+								'<td class="el_column_11" rowspan="1" colspan="1"  style="width: 316px; height:48px; color: #333;">\n' +
+								''+item.orderSender.sdetailed+'\n' +
+								'</td>\n' +
+								'<td class="el_column_12" rowspan="1" colspan="1"  style="width: 270px; height:48px; color: #333;">\n' +
+								''+item.otime+'' +
+								'</td><td class="el_column_13" rowspan="1" colspan="1"  style="width: 265px; height:48px; cursor: pointer;color: #47086c; font-size: 14px;" name="'+item.oid+'">查看详情'
+								+'</td> </tr>');
+					});
+
+					$(".el_column_13").click(function(){
+						$.get("../myorder/selectByOid","oid="+$(this).attr("name"),function (json) {
+							$("#ydh").text(json.wnumber);
+							$("#ddh").text(json.onumber);
+							$("#jjr").text(json.orderSender.sname);
+							$("#jjrdh").text(json.orderSender.sphone);
+							$("#jjrdz").text(json.orderSender.sdistrict+json.orderSender.sdetailed);
+
+							$("#sjr").text(json.orderConsignee.cname);
+							$("#sjrdh").text(json.orderConsignee.cphone);
+							$("#sjrdz").text(json.orderConsignee.cdistrict+json.orderConsignee.cdetailed);
+							$("#wpmc").text(json.itemType);
+							$("#wpzl").text(json.weight);
+
+
+							$("#tsbz").text(json.remark);
+							$("#xdsj").text(json.otime);
+							$("#smjz").text(json.money);
+
+
+
+						},"json");
+						alert(1);
+						var btn = $(".custom_dialog").attr("btn");
+						if (btn=="none") {
+							$(".custom_dialog").stop().animate({right:"0px"},500);
+							$(".custom_dialog").attr("btn","block");
+						}else{
+							$(".custom_dialog").stop().animate({right:"-730px"},500);
+							$(".custom_dialog").attr("btn","none");
+						}
+
+					});
+				},"json");
+			});
+		})
+
+
+
 			
 	</script>
 </html>

@@ -128,7 +128,7 @@
         , cols: [[
           {type: 'checkbox', fixed: 'left'},
           {field: 'oid', title: 'oid', fixed: 'left', unresize: true, sort: true}
-          ,  {templet: '<div>{{d.userinfo.username}}</div>', title: '订单号',  edit: 'text'}
+          ,  {templet: '<div>{{d.userinfo.username}}</div>', title: '用户姓名',  edit: 'text'}
 
           , {field: 'onumber', title: '订单号',  edit: 'text'}
           , {field: 'wnumber', title: '运单号', edit: 'text'}

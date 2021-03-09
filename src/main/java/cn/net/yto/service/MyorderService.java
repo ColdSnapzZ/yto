@@ -56,12 +56,15 @@ public interface MyorderService {
      * @param oid 主键
      * @return 是否成功
      */
+    //根据oid删除
     boolean deleteById(Integer oid);
+
     public int count();
-
+//根据uid查询我的订单集合
     List<Myorder> selectuid(int uid);
-
+//根据oid查询我的订单对象
     Myorder selectByOid(int oid);
-    Myorder selectonumber(int ystatus,int onumber);
+    //根据状态和订单号查询我的订单集合
+    List<Myorder> selectonumber(int ystatus,String onumber);
 
 }

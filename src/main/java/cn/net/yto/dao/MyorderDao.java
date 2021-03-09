@@ -83,13 +83,17 @@ public interface MyorderDao {
      * @param oid 主键
      * @return 影响行数
      */
+
+    //根据id删除
     int deleteById(Integer oid);
+    //根据uid查询
     int select(Integer uid);
-
+//从订单表查询uid
     List<Myorder> selectuid(@Param("uid") int uid);
-
+//通过oid从订单表对象中查询
     Myorder selectByOid(@Param("oid")int oid);
-    Myorder selectonumber(int ystatus,int onumber);
+    //根据状态和订单号从订单集合中查询
+    List<Myorder> selectonumber(int ystatus,String onumber);
 
 
 }

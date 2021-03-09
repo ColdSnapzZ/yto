@@ -106,7 +106,7 @@ public class MyorderServiceImpl implements MyorderService {
     }
 
     @Override
-    public Myorder selectonumber(int ystatus, int onumber) {
+    public List<Myorder> selectonumber(int ystatus, String onumber) {
         return  myorderDao.selectonumber(ystatus,onumber);
     }
 

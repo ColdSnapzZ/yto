@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -36,6 +37,7 @@ public class MyorderController {
     public Myorder selectOne(Integer id) {
         return this.myorderService.queryById(id);
     }
+    //layui中获取值
     @ResponseBody
     @GetMapping(value = "selectAll",produces = {"application/json;charset=UTF-8"})
     public Map<String,Object> selectAll(int page, int  limit){
@@ -46,18 +48,20 @@ public class MyorderController {
         map.put("data",myorderService.queryAllByLimit((page-1)*limit, limit));
         return map;
     }
+    //根据oid删除
     @ResponseBody
     @GetMapping("delete")
     public boolean delete(Integer oid) {
         return this.myorderService.deleteById(oid);
     }
-
+//根据订单对象新增
     @ResponseBody
    @PostMapping("insert")
    public Myorder insert(Myorder myorder){
         return this.myorderService.insert(myorder);
 
    }
+   //根据订单对象修改值
     @ResponseBody
    @PostMapping("update")
     public Myorder update(Myorder myorder){
@@ -65,19 +69,29 @@ public class MyorderController {
         return this.myorderService.update(myorder);
 
    }
-
     @RequestMapping("seletuid")
     public ModelAndView selectuid(){
+        //创建集合
         ModelAndView n=new ModelAndView();
+        //存入到模型对象中
         n.addObject("uid",myorderService.selectuid(12345));
+        //派发到payOrder.jsp页面
         n.setViewName("/front/payOrder.jsp");
         return n;
 
     }
+    //根据oid查询
     @ResponseBody
     @RequestMapping("selectByOid")
     public Myorder selectByOid(int oid){
         return myorderService.selectByOid(oid);
+    }
+
+//根据状态及订单号查询
+    @ResponseBody
+    @RequestMapping("selectonumber")
+    public List<Myorder> selectonumber(int ystatus, String onumber){
+        return myorderService.selectonumber(ystatus,onumber);
     }
 
 

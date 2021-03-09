@@ -65,6 +65,5 @@ public interface OrderSenderDao {
      */
     int deleteById(Integer osid);
 
-    OrderSender queryByOnumber(String onumber);
 
 }

@@ -21,7 +21,6 @@ public interface UserinfoDao {
      * @return 实例对象
      */
     Userinfo queryById(Integer id);
-    Userinfo queryByUid(Integer uid);
 
     /**
      * 查询指定行数据

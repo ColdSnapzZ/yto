@@ -44,35 +44,41 @@ public class OrderSenderController {
 
 
 
-
+//新增用户信息，并生成订单号
     @PostMapping("add")
     public boolean add(Myorder myorder, OrderSender orderSender, OrderConsignee orderConsignee){
-
+//调用生成工具
         String id = IdUtil.createId("EC", 21);
+        //将id存入订单表的订单号
         myorder.setOnumber(id);
+        //将id存入寄件人表的订单号
         orderSender.setOnumber(id);
+        //将id存入收件人表的订单号
         orderConsignee.setOnumber(id);
-
-
-
-
+//获取地址信息，截取并替换
+        //得到寄件人标表
         String sdistrict = orderSender.getSdistrict();
-        String replace = sdistrict.replace(" ", "").replace("/", "-");
+        //替换地址字符
+        String replace = sdistrict.replace(" ", "").replace("-", "");
+       //得到收件人表
         String cdistrict = orderConsignee.getCdistrict();
-        String replace1=cdistrict.replace(" ","").replace("/","-");
+        //替换地址字符
+        String replace1=cdistrict.replace(" ","").replace("-","");
+        //将设置存入寄件人表
         orderSender.setSdistrict(replace);
+        //将地址存入收件人表
         orderConsignee.setCdistrict(replace1);
-
-
-
+       //默认用户id
         myorder.setUid("1");
-        myorder.setYstatus(1);
-
-
+        //默认订单状态
+        myorder.setYstatus(2);
+        //新增至订单寄件人表
         orderSenderService.insert(orderSender);
+        //新增至订单收件人表
          orderConsigneeService.insert(orderConsignee);
+         //新增至订单表
          myorderService.insert(myorder);
-
+         //返回值
          return true;
 
 

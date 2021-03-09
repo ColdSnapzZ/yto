@@ -1,0 +1,789 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+.ahead{
+	height:80px;
+	width:100%;
+	border:1px solid #ededed;
+   z-index: 1;
+	background-color: white;
+	
+	
+	
+
+}
+.headji{
+	width: 1519px;
+	height: 80px;
+}
+.ahead img{
+	margin-top:12px;
+	margin-left:144px;
+	float: left;
+}
+.ahead1{
+	height: 80px;
+	width: 100%;
+	
+}
+.ahead1 dl{
+	height: 80px;
+}
+.ahead1 dl dd{
+	float: left;
+	padding: 40px;
+	margin: -12px 21px;
+	font-size: 16px;
+	cursor: pointer;
+	
+}
+.ahead2{
+	float: right;
+	width: 202px;
+	margin-top:-54px ;
+}
+
+
+.dropbtn {
+            background-color: #FFF;
+            color: #1f001f;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+         
+.dropdown {
+            left: 13%;
+            /* 声明为相对定位，下面的子元素可以参考该元素 */
+            position: relative;
+            display: inline-block;
+			top: 10px;
+        }
+         
+.dropdown-content {
+            /* 隐藏元素 */
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+         
+.dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+         
+.dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+         
+        /* .dropdown的hover效果，作用在.dropdown-content上 */
+.dropdown:hover .dropdown-content {
+            display: block;
+        }
+         
+.dropdown:hover .dropbtn {
+            background-color: #f7f7f7;
+        }
+
+
+
+
+
+
+
+.dropbtn1 {
+            background-color: #FFF;
+            color: #1f001f;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+         
+.dropdown1 {
+            left: 15%;
+            /* 声明为相对定位，下面的子元素可以参考该元素 */
+            position: relative;
+            display: inline-block;
+			top: 10px;
+        }
+         
+.dropdown1-content {
+            /* 隐藏元素 */
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+         
+.dropdown1-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+         
+.dropdown1-content a:hover {
+            background-color: #f1f1f1
+        }
+         
+        /* .dropdown的hover效果，作用在.dropdown-content上 */
+.dropdown1:hover .dropdown1-content {
+            display: block;
+        }
+         
+.dropdown1:hover .dropbtn1 {
+            background-color: #f7f7f7;
+        }
+		
+		
+		
+.dropbtn2 {
+            background-color: #FFF;
+            color: #1f001f;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+         
+.dropdown2 {
+            left: 17%;
+            /* 声明为相对定位，下面的子元素可以参考该元素 */
+            position: relative;
+            display: inline-block;
+			top: 10px;
+        }
+         
+.dropdown2-content {
+            /* 隐藏元素 */
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+         
+.dropdown2-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+         
+.dropdown2-content a:hover {
+            background-color: #f1f1f1
+        }
+         
+        /* .dropdown的hover效果，作用在.dropdown-content上 */
+.dropdown2:hover .dropdown2-content {
+            display: block;
+        }
+         
+.dropdown2:hover .dropbtn2 {
+            background-color: #f7f7f7;
+        }
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		.dropbtn3 {
+		            background-color: #FFF;
+		            color: #1f001f;
+		            padding: 16px;
+		            font-size: 16px;
+		            border: none;
+		            cursor: pointer;
+		        }
+		         
+		.dropdown3 {
+		            left: 8%;
+		            /* 声明为相对定位，下面的子元素可以参考该元素 */
+		            position: relative;
+		            display: inline-block;
+					top: 10px;
+		        }
+		         
+		.dropdown3-content {
+		            /* 隐藏元素 */
+		            display: none;
+		            position: absolute;
+		            background-color: #f9f9f9;
+		            min-width: 160px;
+		            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		        }
+		         
+		.dropdown3-content a {
+		            color: black;
+		            padding: 12px 16px;
+		            text-decoration: none;
+		            display: block;
+		        }
+		         
+		.dropdown3-content a:hover {
+		            background-color: #f1f1f1
+		        }
+		         
+		        /* .dropdown的hover效果，作用在.dropdown-content上 */
+		.dropdown3:hover .dropdown3-content {
+		            display: block;
+		        }
+		         
+		.dropdown3:hover .dropbtn3 {
+		            background-color: #f7f7f7;
+		        }
+		
+		
+		
+		.dropbtn4 {
+		            background-color: #FFF;
+		            color: #1f001f;
+		            padding: 16px;
+		            font-size: 16px;
+		            border: none;
+		            cursor: pointer;
+		        }
+		         
+		.dropdown4 {
+		            left: 2%;
+		            /* 声明为相对定位，下面的子元素可以参考该元素 */
+		            position: relative;
+		            display: inline-block;
+					top: 10px;
+		        }
+		         
+		.dropdown4-content {
+		            /* 隐藏元素 */
+		            display: none;
+		            position: absolute;
+		            background-color: #f9f9f9;
+		            min-width: 160px;
+		            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		        }
+		         
+		.dropdown4-content a {
+		            color: black;
+		            padding: 12px 16px;
+		            text-decoration: none;
+		            display: block;
+		        }
+		         
+		.dropdown4-content a:hover {
+		            background-color: #f1f1f1
+		        }
+		         
+		        /* .dropdown的hover效果，作用在.dropdown-content上 */
+		.dropdown4:hover .dropdown4-content {
+		            display: block;
+		        }
+		         
+		.dropdown4:hover .dropbtn4 {
+		            background-color: #f7f7f7;
+		        }
+
+
+/* 轮播效果图 */
+a {
+	text-decoration:none;
+}
+ul {
+	list-style:outside none none;
+}
+.slider,.slider-panel img,.slider-extra {
+	
+	margin-top: -97px;
+    position: relative;
+	z-index: 0;
+	margin-left: 154px;
+
+	
+}
+.slider {
+	margin-top: 30px;
+	
+}
+.slider-panel,.slider-nav,.slider-pre,.slider-next {
+	position:absolute;
+	z-index:8;
+}
+.slider-panel {
+	position:absolute;
+}
+.slider-panel img {
+	border:none;
+	width:957px;
+	height: 261px;
+	
+}
+.slider-extra {
+	position:relative;
+}
+.slider-nav {
+	margin-left:-51px;
+	position:absolute;
+	left:50%;
+	bottom:4px;
+}
+.slider-nav li {
+	background:#3e3e3e;
+	border-radius:50%;
+	color:#fff;
+	cursor:pointer;
+	margin:0 2px;
+	overflow:hidden;
+	text-align:center;
+	display:inline-block;
+	height:18px;
+	line-height:18px;
+	width:18px;
+}
+.slider-nav .slider-item-selected {
+	background:blue;
+}
+.slider-page a {
+	background:rgba(0,0,0,0.2);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#33000000,endColorstr=#33000000);
+	color:#fff;
+	text-align:center;
+	display:block;
+	font-family:"simsun";
+	font-size:22px;
+	width:28px;
+	height:62px;
+	line-height:62px;
+	margin-top:-31px;
+	position:absolute;
+	top:50%;
+}
+.slider-page a:HOVER {
+	background:rgba(0,0,0,0.4);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+}
+.slider-next {
+	left:100%;
+	margin-left:-28px;
+}
+
+
+.head{
+	width: 1263px;
+	height: 100px;
+	background-color: ;
+}
+
+.dowm{
+	height:1680px;
+	width: 1516PX;
+	
+	margin-left: 1PX;
+}
+.dowm1{
+	width: 1263px;
+	height: 260px;
+	
+	margin-left: 144PX;
+	margin-top: 10PX;
+	background-color: white;
+}
+
+.imgg{
+	margin-left: 1PX;
+	margin-top: 6PX;
+	width: 315px;
+	height: 52px;
+	
+	text-align: center;
+	font-size: 14px;
+	color: #333;
+}
+.imggg{
+margin-left: 102PX;
+	margin-top: 21PX;
+	width: 80px;
+	height: 80px;
+}
+
+.midelle{
+	width: 1263px;
+	height: 85px;
+	margin-top: 10px;
+	margin-left: 144px;
+	background-color: #f7f7f7;
+	
+}
+.midelle2{
+	width:705px;
+	height: 84px;
+	
+	margin-left: 455px;
+	float: right;
+	margin-top: -82px;
+	background-color: white;
+	border-radius:13px;
+
+	
+	
+}
+.text{
+	width:440px;
+	height:30px;
+	margin-top:27px;;
+	color:#c0c4cc ;
+	margin-left: 10px;
+}
+.text2{
+	color: #fff;
+	background-color: #47086c;
+	border-color: #47086c;
+	border: 0;
+	display: inline-block;
+	line-height: 1;
+	white-space: nowrap;
+	cursor: pointer;
+	background: #fff;
+	    background-color: rgb(71, 8, 108);
+	border: 1px solid #dcdfe6;
+	
+	color: white;
+	-webkit-appearance: none;
+	text-align: center;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	outline: none;
+	margin: 0;
+	-webkit-transition: .1s;
+	transition: .1s;
+	font-weight: 500;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	padding: 12px 20px;
+	font-size: 14px;
+	border-radius: 4px;
+}
+.midelle img{
+	margin-left: 55px;
+	margin-top: 20px;
+}
+.midelle3{
+	width:541px;
+	height: 83px;
+	
+	background-color: white;
+border-radius:13px;
+}
+.midelle4{
+	width: 421px;
+	height: 10px;
+	
+	margin-top: 3px;
+	margin-left: 40px;
+	font-size: 14px;
+}
+.midelle5{
+	border-radius:6px;
+	-webkit-appearance: none;
+	background-color: #fff;
+	background-image: none;
+	border-radius: 4px;
+	border: 1px solid #dcdfe6;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	color: #606266;
+	display: inline-block;
+	font-size: inherit;
+	height: 40px;
+	line-height: 40px;
+	outline: none;
+	padding: 0 15px;
+	    padding-right: 15px;
+	-webkit-transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+	transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+	width: 79%;
+}
+.four{
+	width: 1263px;
+	height: 1239px;
+	
+	margin-left: 144px;
+	margin-top: 10px;
+	background-color: white;
+	border-radius:13px;
+}
+.four1{
+	width: 1200px;
+	height: 356px;
+
+	margin: auto;
+	margin-top: 17px;
+	border-radius:13px;
+	box-shadow: #a9a9a97d 10px 9px 30px 5px;
+}
+.four1 img{
+	width: 140px;
+	height: 50px;
+	margin-top: -9px;
+	margin-left: -16px;
+	position: relative;
+}
+.four2{
+	margin-left: 10px;
+	margin-top: 10px;
+	font-size: 14px;
+	color: #999999;SSSS
+}
+
+
+.four4{
+	width: 1030px;
+	height: 300px;
+	
+	margin: auto;
+}
+.wenzi{
+	margin-top: 46px;
+	margin-left: 85px;
+	font-size: 14px;
+	color: #999999;
+	
+	
+	
+}
+.wnezikuang{
+	width: 783px;
+	height: 23px;
+	background:none;
+	border:none;
+	border-bottom:1px solid #ddd;
+	color: #999999;
+}
+
+
+
+
+
+
+
+
+
+.four11{
+	width: 1200px;
+	height: 356px;
+
+	margin: auto;
+	margin-top: 26px;
+	border-radius:13px;
+	box-shadow: #a9a9a97d 10px -15px 30px 5px;
+}
+.four11 img{
+	width: 140px;
+	height: 50px;
+	margin-top: -9px;
+	margin-left: -16px;
+	position: relative;
+}
+.four21{
+	margin-left: 10px;
+	margin-top: 10px;
+	font-size: 14px;
+	color: #999999;SSSS
+}
+
+
+.four41{
+	width: 1030px;
+	height: 300px;
+	
+	margin: auto;
+}
+.wenzi1{
+	margin-top: 46px;
+	margin-left: 85px;
+	font-size: 14px;
+	color: #999999;
+	
+	
+	
+}
+.wnezikuang1{
+	width: 783px;
+	height: 23px;
+	background:none;
+	border:none;
+	border-bottom:1px solid #ddd;
+	color: #999999;
+}
+
+
+
+
+
+
+
+
+
+.four12{
+	width: 1200px;
+	height: 420px;
+
+	margin: auto;
+	margin-top: 0px;
+	border-radius:13px;
+	box-shadow: #a9a9a97d 10px 15px 30px 5px;
+}
+.four12 img{
+	width: 140px;
+	height: 50px;
+	margin-top: -9px;
+	margin-left: -16px;
+	position: relative;
+	
+}
+.four22{
+	margin-left: 42px;
+	margin-top: 10px;
+	font-size: 14px;
+	color: #999999;
+	
+}
+
+
+.four42{
+	width: 1000px;
+	height: 288px;
+	margin-top: 32px;
+	margin-left: 81px;
+
+}
+.wenzi2{
+	margin-top: 42px;
+	margin-left: 85px;
+	font-size: 14px;
+	color: #999999;
+	
+	
+	
+	
+}
+.s1{
+	border-top: 0;
+	border-right: 0;
+	border-left: 0;
+	border-radius: 0;
+	width: 402px;
+	height: 40px;
+	-webkit-appearance: none;
+	background-color: #fff;
+	background-image: none;
+	border-radius: 4px;
+	border: 1px solid #dcdfe6;
+	    border-top-color: rgb(220, 223, 230);
+	    border-top-style: solid;
+	    border-top-width: 1px;
+	    border-right-color: rgb(220, 223, 230);
+	    border-right-style: solid;
+	    border-right-width: 1px;
+	    border-left-color: rgb(220, 223, 230);
+	    border-left-style: solid;
+	    border-left-width: 1px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	color: #606266;
+	display: inline-block;
+	font-size: inherit;
+	height: 35px;
+	line-height: 35px;
+	outline: none;
+	padding: 0 15px;
+	    padding-right: 15px;
+	-webkit-transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+	transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+	width: 86%;
+}
+.wnezikuang2{
+	width: 783px;
+	height: 23px;
+	background:none;
+	border:none;
+	border-bottom:1px solid #ddd;
+	color: #999999;
+	margin-left: 10px;
+}
+
+.four42 img{
+	width: 109px;
+	height: 74px;
+	margin-top: -56px;
+	margin-left: 164px;
+}
+
+
+.foot{
+	
+	width:1490px;
+	height: 60px;
+	position: fixed;
+	bottom: 0px;
+	
+	background-color: #f7f7f7;
+	font-family: SourceHanSans-CN;
+	line-height: 60px;
+}
+.foot1{
+	float:left;
+	color: #666;
+	font-size: 16px;
+	
+}
+.foot2{
+	color: #47086c;
+	text-decoration: none;
+}
+.foot3{
+	color: #e69b24;
+}
+.wenzi3{
+	color: #000000;
+	
+}
+.four13{
+	width: 1100px;
+	height: 40px;
+	
+margin-top: 23px;
+margin-left: 68px;
+}
+
+.button--primary{
+	color: #fff;
+	background-color: #47086c;
+	border-color: #47086c;
+	cursor: pointer;
+
+}
+.dibu2{
+	color: #47086c;
+	font-size: 14px;
+}
+.dibu{
+	margin-left: 276px;
+}
+.dibu3{
+	color:#606266;
+	font-size: 14px;
+}
+}
