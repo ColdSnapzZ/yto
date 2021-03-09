@@ -19,6 +19,11 @@
         select liid, wnumber, wtime, winfo from yto.logistics_info where wnumber = #{wnumber}
     </select>
 
-
+    <select id="LogisticsInfo" resultMap="BaseResultMap">
+        select
+          liid, wnumber, wtime, winfo
+        from yto.logistics_info
+        where wnumber = #{wnumber}
+    </select>
 
 </mapper>

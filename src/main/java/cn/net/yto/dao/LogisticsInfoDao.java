@@ -14,6 +14,8 @@ import java.util.List;
 @Mapper
 public interface LogisticsInfoDao {
 
+    //根据wnumber新增
+    List<LogisticsInfo> LogisticsInfo(String wnumber);
     /**
      * 根据运单号查询
      * @param wnumber

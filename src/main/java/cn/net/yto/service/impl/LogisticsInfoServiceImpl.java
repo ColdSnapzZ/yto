@@ -20,6 +20,11 @@ public class LogisticsInfoServiceImpl implements LogisticsInfoService {
     private LogisticsInfoDao logisticsInfoDao;
 
     @Override
+    public List<LogisticsInfo> LogisticsInfo(String wnumber) {
+        return this.logisticsInfoDao.LogisticsInfo(wnumber);
+    }
+
+    @Override
     public List<LogisticsInfo> queryByWnumber(String wnumber) {
         return logisticsInfoDao.queryByWnumber(wnumber);
     }

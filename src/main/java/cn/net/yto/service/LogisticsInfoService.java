@@ -12,6 +12,10 @@ import java.util.List;
  */
 public interface LogisticsInfoService {
 
+
+    //根据wnumber新增
+    List<LogisticsInfo> LogisticsInfo(String wnumber);
+
     /**
      * 根据运单号查询
      * @param wnumber

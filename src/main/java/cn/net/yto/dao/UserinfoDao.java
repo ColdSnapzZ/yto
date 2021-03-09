@@ -4,6 +4,8 @@ import cn.net.yto.entity.Userinfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * (Userinfo)表数据库访问层
  *
