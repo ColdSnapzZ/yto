@@ -3,13 +3,12 @@ package cn.net.yto.dao;
 import cn.net.yto.entity.Userinfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import java.util.List;
 
 /**
  * (Userinfo)表数据库访问层
  *
  * @author makejava
- * @since 2021-01-11 18:29:49
+ * @since 2021-01-06 14:34:30
  */
 @Mapper
 public interface UserinfoDao {
@@ -49,19 +48,10 @@ public interface UserinfoDao {
     int insert(Userinfo userinfo);
 
     /**
-     * 修改数据
      *
-     * @param userinfo 实例对象
-     * @return 影响行数
+     * @return
      */
-    int update(Userinfo userinfo);
+    Userinfo queryByUsernameAndPassword(@Param("username") String username,@Param("password") String password);
 
-    /**
-     * 通过主键删除数据
-     *
-     * @param id 主键
-     * @return 影响行数
-     */
-    int deleteById(Integer id);
 
 }

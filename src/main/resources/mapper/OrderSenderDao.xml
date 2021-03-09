@@ -3,7 +3,7 @@
 <mapper namespace="cn.net.yto.dao.OrderSenderDao">
 
     <resultMap id="BaseResultMap" type="cn.net.yto.entity.OrderSender">
-        <!--@Table order_sender-->
+
         <result property="osid" column="osid" jdbcType="INTEGER"/>
         <result property="onumber" column="onumber" jdbcType="VARCHAR"/>
         <result property="sname" column="sname" jdbcType="VARCHAR"/>
@@ -88,12 +88,5 @@
     <delete id="deleteById">
         delete from yto.order_sender where osid = #{osid}
     </delete>
-
-    <select id="queryByOnumber"  resultMap="BaseResultMap">
-        select
-          osid, onumber, sname, sphone, sdistrict, sdetailed
-        from yto.order_sender
-        where onumber = #{onumber}
-    </select>
 
 </mapper>

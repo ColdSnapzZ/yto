@@ -18,6 +18,19 @@
         <association property="orderConsignee" column="onumber" select="cn.net.yto.dao.OrderConsigneeDao.queryByOnumber"/>
     </resultMap>
 
+    <resultMap type="cn.net.yto.entity.Myorder" id="MyorderMap2">
+        <result property="oid" column="oid" jdbcType="INTEGER"/>
+        <result property="uid" column="uid" jdbcType="VARCHAR"/>
+        <result property="onumber" column="onumber" jdbcType="VARCHAR"/>
+        <result property="wnumber" column="wnumber" jdbcType="VARCHAR"/>
+        <result property="itemtype" column="itemtype" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="weight" column="weight" jdbcType="NUMERIC"/>
+        <result property="otime" column="otime" jdbcType="VARCHAR"/>
+        <result property="ystatus" column="ystatus" jdbcType="INTEGER"/>
+        <result property="money" column="money" jdbcType="NUMERIC"/>
+    </resultMap>
+
     <!--查询单个-->
     <select id="queryById" resultMap="MyorderMap">
         select
@@ -69,7 +82,7 @@
         select
           oid, uid, onumber, wnumber, itemtype, remark, weight, otime, ystatus, money
         from yto.myorder
-        limit #{offset}, #{limit}1o
+        limit #{offset}, #{limit}
     </select>
 
     <!--通过实体作为筛选条件查询-->
@@ -174,7 +187,33 @@
         delete from yto.myorder where oid = #{oid}
     </delete>
 
+    <select id="selectByStatusAndArea" resultMap="MyorderMap2">
+        select
+            oid, uid, mo.onumber, wnumber, itemtype, remark, weight, otime, ystatus, money
+        from
+            yto.myorder mo,yto.order_sender os
+        where
+            mo.onumber=os.onumber and mo.ystatus= #{status} and os.sdistrict = #{area}
+        limit
+            #{offset},#{limit}
+    </select>
 
+    <select id="countByStatusAndArea" resultType="int">
+        select
+            count(mo.oid)
+        from
+            yto.myorder mo,yto.order_sender os
+        where
+            mo.onumber=os.onumber and mo.ystatus= #{status} and os.sdistrict = #{area}
+    </select>
+
+    <update id="updateStatus">
+        update yto.myorder
+        set
+            ystatus=#{status}
+        where
+            onumber=#{onumber}
+    </update>
 
 
 </mapper>

@@ -6,29 +6,30 @@ import java.io.Serializable;
  * (Userinfo)实体类
  *
  * @author makejava
- * @since 2021-01-11 18:29:24
+ * @since 2021-01-06 14:34:29
  */
 public class Userinfo implements Serializable {
-    private static final long serialVersionUID = -82149267004449543L;
-    
+    private static final long serialVersionUID = 928216278655672405L;
+
     private Integer id;
-    
+
     private String uid;
-    
+
     private String username;
-    
+
     private String phone;
-    
+
     private String gender;
-    
+
     private String birthday;
-    
+
     private String email;
-    
+
     private String detailed;
-    
+
     private String headimg;
 
+    private String password;
 
     public Integer getId() {
         return id;
@@ -102,4 +103,27 @@ public class Userinfo implements Serializable {
         this.headimg = headimg;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Userinfo{" +
+                "id=" + id +
+                ", uid='" + uid + '\'' +
+                ", username='" + username + '\'' +
+                ", phone='" + phone + '\'' +
+                ", gender='" + gender + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", email='" + email + '\'' +
+                ", detailed='" + detailed + '\'' +
+                ", headimg='" + headimg + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
