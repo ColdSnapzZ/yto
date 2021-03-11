@@ -83,8 +83,8 @@ public class MyorderController {
     //根据oid查询
     @ResponseBody
     @RequestMapping("selectByOid")
-    public Myorder selectByOid(int oid){
-        return myorderService.selectByOid(oid);
+    public List<Map<String,Object>> selectByOid(int oid,String wnumber){
+        return myorderService.selectByOid(oid,wnumber);
     }
 
 //根据状态及订单号查询

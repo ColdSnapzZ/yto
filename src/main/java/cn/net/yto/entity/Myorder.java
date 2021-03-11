@@ -34,7 +34,15 @@ public class Myorder implements Serializable {
 
     private OrderSender orderSender;
 
+
     private OrderConsignee orderConsignee;
+
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+
 
     public Userinfo getUserinfo() {
         return userinfo;

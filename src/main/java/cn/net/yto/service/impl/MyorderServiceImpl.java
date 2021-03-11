@@ -101,8 +101,8 @@ public class MyorderServiceImpl implements MyorderService {
     }
 
     @Override
-    public Myorder selectByOid(int oid) {
-        return myorderDao.selectByOid(oid);
+    public List<Map<String,Object>>  selectByOid(int oid,String wnumber) {
+        return myorderDao.selectByOid(oid,wnumber);
     }
 
     @Override

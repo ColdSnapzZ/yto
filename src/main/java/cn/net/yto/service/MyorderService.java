@@ -63,7 +63,7 @@ public interface MyorderService {
 //根据uid查询我的订单集合
     List<Myorder> selectuid(int uid);
 //根据oid查询我的订单对象
-    Myorder selectByOid(int oid);
+List<Map<String,Object>>  selectByOid(int oid,String wnumber);
     //根据状态和订单号查询我的订单集合
     List<Myorder> selectonumber(int ystatus,String onumber);
 

@@ -33,9 +33,8 @@
        SELECT oid, uid, onumber, wnumber, itemtype, remark, weight, otime, ystatus, money
        FROM yto.myorder WHERE uid=#{uid}
     </select>
-    <select id="selectByOid" resultMap="MyorderMap">
-       SELECT oid, uid, onumber, wnumber, itemtype, remark, weight, otime, ystatus, money
-       FROM yto.myorder WHERE oid=#{oid}
+    <select id="selectByOid" resultType="map">
+       SELECT*FROM  yto.myorder s1,yto.logistics_info s2,`order_consignee` s3,`order_sender` s4 WHERE s1.oid=#{oid} and s2.wnumber=#{wnumber} and s1.onumber=s3.onumber and s3.onumber=s4.onumber
     </select>
 
     <select id="selectonumber" resultMap="MyorderMap">
@@ -45,7 +44,7 @@
            <if test="onumber != null  and onumber != ''">
                and onumber=#{onumber}
            </if>
-           <if test="ystatus != null">
+           <if test="ystatus != 0">
                and  ystatus=#{ystatus}
            </if>
         </where>
@@ -69,7 +68,7 @@
         select
           oid, uid, onumber, wnumber, itemtype, remark, weight, otime, ystatus, money
         from yto.myorder
-        limit #{offset}, #{limit}1o
+        limit #{offset}, #{limit}
     </select>
 
     <!--通过实体作为筛选条件查询-->

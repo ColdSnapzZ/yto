@@ -155,12 +155,12 @@
 										${s.wnumber}
 							</td>
 							<td class="el_column_11" rowspan="1" colspan="1"  style="width: 316px; height:48px; color: #333;">
-									${s.orderSender.sdetailed}
+									${s.orderSender.sname}
 							</td>
-							<td class="el_column_12" rowspan="1" colspan="1"  style="width: 270px; height:48px; color: #333;">
+							<td class="el_column_12" rowspan="1" colspan="1"  style="width: 270px; height:48px; color: #333;" >
 									${s.otime}
 							</td>
-							<td class="el_column_13" rowspan="1" colspan="1"  style="width: 265px; height:48px; cursor: pointer;color: #47086c; font-size: 14px;" name="${s.oid}" >
+							<td class="el_column_13" rowspan="1" colspan="1"  style="width: 265px; height:48px; cursor: pointer;color: #47086c; font-size: 14px;" name="${s.oid}" title="${s.wnumber}" >
 									查看详情							
 							</td>
 							<!--<td class="el_column_14" rowspan="1" colspan="1"  style="width: 378px; height=48px">
@@ -285,27 +285,8 @@
 				<div class="yto-x-hidden" style="margin-bottom: -17px; margin-right: -17px;">
 					<div class="scrollbar__view">
 						<ul>
-							<li>
-								<p>客户签收人: 已签收，签收人凭取货码签收。 已签收  感谢使用圆通速递，期待再次为您服务 如有疑问请联系：18374956356，投诉电话：0731-82563323</p>
-								<p>2020-12-20 19:49:32</p>
-							</li>
-							<li>
-								<p>客户签收人: 已签收，签收人凭取货码签收。 已签收  感谢使用圆通速递，期待再次为您服务 如有疑问请联系：18374956356，投诉电话：0731-82563323</p>
-								<p>2020-12-20 19:49:32</p>
-							</li>
 
-							<li>
-								<p>客户签收人: 已签收，签收人凭取货码签收。 已签收  感谢使用圆通速递，期待再次为您服务 如有疑问请联系：18374956356，投诉电话：0731-82563323</p>
-								<p>2020-12-20 19:49:32</p>
-							</li>
-							<li>
-								<p>客户签收人: 已签收，签收人凭取货码签收。 已签收  感谢使用圆通速递，期待再次为您服务 如有疑问请联系：18374956356，投诉电话：0731-82563323</p>
-								<p>2020-12-20 19:49:32</p>
-							</li>
-							<li>
-								<p>客户签收人: 已签收，签收人凭取货码签收。 已签收  感谢使用圆通速递，期待再次为您服务 如有疑问请联系：18374956356，投诉电话：0731-82563323</p>
-								<p>2020-12-20 19:49:32</p>
-							</li>
+
 						</ul>
 					</div>
 				</div>
@@ -488,10 +469,7 @@
 								<p>客户签收人: 已签收，签收人凭取货码签收。 已签收  感谢使用圆通速递，期待再次为您服务 如有疑问请联系：18374956356，投诉电话：0731-82563323</p>
 								<p>2020-12-20 19:49:32</p>
 							</li>
-							<li>
-								<p>客户签收人: 已签收，签收人凭取货码签收。 已签收  感谢使用圆通速递，期待再次为您服务 如有疑问请联系：18374956356，投诉电话：0731-82563323</p>
-								<p>2020-12-20 19:49:32</p>
-							</li>
+
 
 						</ul>
 					</div>
@@ -562,23 +540,34 @@
 			});
 
 			$(".el_column_13").click(function(){
-				$.get("../myorder/selectByOid","oid="+$(this).attr("name"),function (json) {
-					$("#ydh").text(json.wnumber);
-					$("#ddh").text(json.onumber);
-					$("#jjr").text(json.orderSender.sname);
-					$("#jjrdh").text(json.orderSender.sphone);
-					$("#jjrdz").text(json.orderSender.sdistrict+json.orderSender.sdetailed);
+				$(".scrollbar__view").text("");
+				$.get("../myorder/selectByOid","oid="+$(this).attr("name")+"&wnumber="+$(this).attr("title"),function (json) {
+					$("#ydh").text(json[0].wnumber);
+					$("#ddh").text(json[0].onumber);
+					$("#jjr").text(json[0].sname);
+					$("#jjrdh").text(json[0].sphone);
+					$("#jjrdz").text(json[0].sdistrict+json[0].sdetailed);
 
-					$("#sjr").text(json.orderConsignee.cname);
-					$("#sjrdh").text(json.orderConsignee.cphone);
-					$("#sjrdz").text(json.orderConsignee.cdistrict+json.orderConsignee.cdetailed);
-					$("#wpmc").text(json.itemType);
-					$("#wpzl").text(json.weight);
+					$("#sjr").text(json[0].cname);
+					$("#sjrdh").text(json[0].cphone);
+					$("#sjrdz").text(json[0].cdistrict+json[0].cdetailed);
+					$("#wpmc").text(json[0].itemType);
+					$("#wpzl").text(json[0].weight);
 
 
-					$("#tsbz").text(json.remark);
-					$("#xdsj").text(json.otime);
-					$("#smjz").text(json.money);
+					$("#tsbz").text(json[0].remark);
+					$("#xdsj").text(json[0].otime);
+					$("#smjz").text(json[0].money);
+					for (let i = 0; i <json.length ; i++) {
+						$(".scrollbar__view").append("<ul>\n" +
+								"\t\t\t\t\t<li>\n" +
+								"\t\t\t\t\t<p>"+json[i].winfo+"</p>\n" +
+								"\t\t\t\t\t<p>"+json[i].wtime+"</p>\n" +
+								"\t\t\t\t\t</li>\n" +
+								"\n" +
+								"\n" +
+								"\t\t\t\t\t</ul>")
+					}
 
 
 
@@ -690,7 +679,7 @@
 			$(".el_scrollbar li").on("click",function () {
 				alert($(this).html())
 				if($(this).html()=="全部订单"){
-					state=null;
+					state="0";
 				}else if($(this).html()=="待取件"){
 					state="2";
 				}else if($(this).html()=="运送中"){
@@ -705,6 +694,7 @@
 			$("#chaxun").click(function () {
 				alert(state);
 				var n=$("input[name=onumber]").val();
+
 				$.post("../myorder/selectonumber","ystatus="+state+"&onumber="+n,function (json) {
 
 					$("#tabs").text("");
@@ -722,32 +712,43 @@
 								''+item.wnumber+'\n' +
 								'</td>\n' +
 								'<td class="el_column_11" rowspan="1" colspan="1"  style="width: 316px; height:48px; color: #333;">\n' +
-								''+item.orderSender.sdetailed+'\n' +
+								''+item.orderSender.sname	+'\n' +
 								'</td>\n' +
 								'<td class="el_column_12" rowspan="1" colspan="1"  style="width: 270px; height:48px; color: #333;">\n' +
 								''+item.otime+'' +
-								'</td><td class="el_column_13" rowspan="1" colspan="1"  style="width: 265px; height:48px; cursor: pointer;color: #47086c; font-size: 14px;" name="'+item.oid+'">查看详情'
+								'</td><td class="el_column_13" rowspan="1" colspan="1"  style="width: 265px; height:48px; cursor: pointer;color: #47086c; font-size: 14px;" name="'+item.oid+'"title="'+item.wnumber+'">查看详情'
 								+'</td> </tr>');
 					});
 
 					$(".el_column_13").click(function(){
-						$.get("../myorder/selectByOid","oid="+$(this).attr("name"),function (json) {
-							$("#ydh").text(json.wnumber);
-							$("#ddh").text(json.onumber);
-							$("#jjr").text(json.orderSender.sname);
-							$("#jjrdh").text(json.orderSender.sphone);
-							$("#jjrdz").text(json.orderSender.sdistrict+json.orderSender.sdetailed);
+						$(".scrollbar__view").text("");
+						$.get("../myorder/selectByOid","oid="+$(this).attr("name")+"&wnumber="+$(this).attr("title"),function (json) {
+							$("#ydh").text(json[0].wnumber);
+							$("#ddh").text(json[0].onumber);
+							$("#jjr").text(json[0].sname);
+							$("#jjrdh").text(json[0].sphone);
+							$("#jjrdz").text(json[0].sdistrict+json[0].sdetailed);
 
-							$("#sjr").text(json.orderConsignee.cname);
-							$("#sjrdh").text(json.orderConsignee.cphone);
-							$("#sjrdz").text(json.orderConsignee.cdistrict+json.orderConsignee.cdetailed);
-							$("#wpmc").text(json.itemType);
-							$("#wpzl").text(json.weight);
+							$("#sjr").text(json[0].cname);
+							$("#sjrdh").text(json[0].cphone);
+							$("#sjrdz").text(json[0].cdistrict+json[0].cdetailed);
+							$("#wpmc").text(json[0].itemType);
+							$("#wpzl").text(json[0].weight);
 
 
-							$("#tsbz").text(json.remark);
-							$("#xdsj").text(json.otime);
-							$("#smjz").text(json.money);
+							$("#tsbz").text(json[0].remark);
+							$("#xdsj").text(json[0].otime);
+							$("#smjz").text(json[0].money);
+							for (let i = 0; i <json.length ; i++) {
+								$(".scrollbar__view").append("<ul>\n" +
+										"\t\t\t\t\t<li>\n" +
+										"\t\t\t\t\t<p>"+json[i].winfo+"</p>\n" +
+										"\t\t\t\t\t<p>"+json[i].wtime+"</p>\n" +
+										"\t\t\t\t\t</li>\n" +
+										"\n" +
+										"\n" +
+										"\t\t\t\t\t</ul>")
+							}
 
 
 

@@ -91,7 +91,7 @@ public interface MyorderDao {
 //从订单表查询uid
     List<Myorder> selectuid(@Param("uid") int uid);
 //通过oid从订单表对象中查询
-    Myorder selectByOid(@Param("oid")int oid);
+    List<Map<String,Object>> selectByOid(@Param("oid")int oid,String wnumber);
     //根据状态和订单号从订单集合中查询
     List<Myorder> selectonumber(int ystatus,String onumber);
 
