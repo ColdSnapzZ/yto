@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>取件分配</title>
+    <link rel="stylesheet" href="../layui/css/layui.css"/>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../layui/layui.all.js"></script>
+</head>
+<body>
+    <table id="orders" lay-filter="ordersTable"></table>
+    <div id="allotOrder" style="display: none">
+        <table id="emps" lay-filter="empsTable"></table>
+    </div>
+</body>
+<!--行操作-->
+<script type="text/html" id="rowBar">
+    <a class="layui-btn layui-btn-xs" lay-event="allot">分配取件</a>
+</script>
+<script type="text/html" id="empsBar">
+    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="emps"><i class="layui-icon layui-icon-release"></i></a>
+</script>
+<script>
+    layui.use(['table','form'], function(){
+        let table=layui.table;
+
+        let ordersTable=table.render({
+            elem: '#orders'
+            ,url: '/yto/myorder/selectByStatus' //数据接口
+            ,limits:[5,10,15]
+            ,limit:5
+            ,page:true
+            ,cols: [[ //表头
+                {field: 'onumber', title: '订单号'}
+                ,{field: 'itemtype', title: '物品类型'}
+                ,{field: 'remark', title: '寄件备注'}
+                ,{field: 'weight', title: '重量'}
+                ,{field: 'otime', title: '下单时间', sort: true}
+                ,{title: '操作',toolbar:'#rowBar'}
+            ]]
+            ,id:'orders'
+        });
+
+        table.on('tool(ordersTable)', function(obj){
+            var data = obj.data; //获得当前行数据
+            var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+            if(layEvent === 'allot') { //查看
+               selectEmp(data.onumber,obj);
+               layer.open({
+                   type: 1,
+                   title: '选择分配',
+                   area: ['700px', '500px'],
+                   content: $('#allotOrder') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+               });
+
+
+
+            }
+        });
+    });
+
+    function selectEmp(onnumber,objt) {
+        layui.use(['table','form'], function() {
+            let table = layui.table;
+
+            table.render({
+                elem: '#emps'
+                , url: '/yto/employee/selectBySiteAndJob' //数据接口
+                , limits: [5, 10, 15]
+                , limit: 5
+                , page: true
+                , cols: [[ //表头
+                    {field: 'empid', title: '工号'}
+                    , {field: 'empname', title: '姓名'}
+                    , {field: 'phone', title: '电话'}
+                    , {field: 'headimg', title: 'img',templet: function (d) {
+                            return '<img src=d.headimg>'
+                        }}
+                    , {field: 'pickUpWorkOrderCount', title:'待完成工单',sort:true,templet: function (d) {
+                            if (d.pickUpWorkOrderCount==null){
+                                return 0;
+                            }
+                            return d.pickUpWorkOrderCount;
+                        }}
+                    , {title: '分配', toolbar: '#empsBar'}
+                ]]
+                , id: 'emps'
+            });
+
+            table.on('tool(empsTable)', function(obj){
+                var data = obj.data; //获得当前行数据
+                var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+                if(layEvent === 'emps') { //查看
+
+                    layer.confirm('确认分配？', {icon: 3, title:'提示'}, function(index){
+                        //do something
+                        $.ajax({
+                            type:'post',
+                            dataType:'json',
+                            url:'/yto/pickupworkorder/add',
+                            data:'onumber='+onnumber+'&empid='+data.empid,
+                            success:function (msg) {
+                                if (msg){
+                                    layer.closeAll();
+                                    objt.del();
+                                    layer.msg("分配成功");
+                                }else {
+                                    layer.msg("分配失败");
+                                }
+                            }
+                        })
+                        layer.close(index);
+                    });
+
+                }
+            });
+        });
+
+    }
+</script>
+</html>

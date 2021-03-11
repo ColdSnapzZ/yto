@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
 
 /**
  * (Myorder)表服务实现类
@@ -110,5 +109,18 @@ public class MyorderServiceImpl implements MyorderService {
         return  myorderDao.selectonumber(ystatus,onumber);
     }
 
+    @Override
+    public List<Myorder> selectByStatusAndArea(int status, String area,int offset,int limit) {
+        return myorderDao.selectByStatusAndArea(status, area,(offset-1)*limit,limit);
+    }
 
+    @Override
+    public int countByStatusAndArea(int status, String area) {
+        return myorderDao.countByStatusAndArea(status, area);
+    }
+
+    @Override
+    public int updateStatus(String onumber, int status) {
+        return myorderDao.updateStatus(onumber, status);
+    }
 }

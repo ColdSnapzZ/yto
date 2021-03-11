@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.net.yto.dao.SiteDao">
+
+    <resultMap type="cn.net.yto.entity.Site" id="SiteMap">
+        <result property="sid" column="sid" jdbcType="INTEGER"/>
+        <result property="siteid" column="siteId" jdbcType="VARCHAR"/>
+        <result property="yarea" column="yarea" jdbcType="VARCHAR"/>
+        <result property="detailed" column="detailed" jdbcType="VARCHAR"/>
+        <result property="phone" column="phone" jdbcType="VARCHAR"/>
+        <result property="empid" column="empid" jdbcType="VARCHAR"/>
+        <result property="creationtime" column="creationtime" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectIdByArea" resultMap="SiteMap">
+        select sid, siteId, yarea, detailed, phone, empid, creationtime from yto.site where yarea = #{area}
+    </select>
+
+
+
+</mapper>
